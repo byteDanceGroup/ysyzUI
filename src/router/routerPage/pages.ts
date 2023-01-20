@@ -1,0 +1,19 @@
+export default[
+    {
+        path:'/',
+        name:'home',
+        component:()=>import("../../views/Home.vue"),
+        children:[
+            {
+                path:'button',
+                name:'button',
+                component:()=>import('../../../packages/button/doc/doc.md')
+            },
+            {
+                path:'/',
+                name:'button',
+                component:()=>import('../../../packages/button/doc/doc.md')
+            }
+        ]
+    }
+]
