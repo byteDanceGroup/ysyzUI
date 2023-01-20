@@ -1,6 +1,5 @@
 ## 技术文档    
 2023-01-20
-test1
 ### 组件暴露方式可以留着讨论，目前的声明方式同iview相同，例如button封装为Button。
 ### packages
 
