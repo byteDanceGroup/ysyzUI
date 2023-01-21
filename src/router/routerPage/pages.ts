@@ -13,6 +13,11 @@ export default[
                 path:'/',
                 name:'button',
                 component:()=>import('../../../packages/button/doc/doc.md')
+            },
+            {
+                path:'wenhao',
+                name:'wenhao',
+                component:()=>import('../../../packages/wenhao-button/View.vue')
             }
         ]
     }
