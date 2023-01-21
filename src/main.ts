@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 // import './style.css'
-// import QUI from '../packages/index'
+import QUI from '../packages/index'
 import App from './App.vue'
 import router from './router'
-import QUI from 'qui-ts'
+// import QUI from 'qui-ts'
 import '../node_modules/qui-ts/dist/style.css'
 import 'highlight.js/styles/stackoverflow-light.css'
 import hljs from 'highlight.js/lib/core';

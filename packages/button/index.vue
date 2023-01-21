@@ -5,7 +5,7 @@
 </template>
 <script lang="ts">
 export default{
-    name:'Button'
+    name:'ysyz-button'
 }
 </script>
 <script setup lang="ts">
