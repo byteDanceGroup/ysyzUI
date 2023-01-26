@@ -49,22 +49,28 @@ const switchColor = (value: string) => {
 
 //颜色变浅
 export const lighten = (value: string, num: number) => {
+  if (num < 0 || num > 1) {
+    console.warn("light()第二个参数非法，请限制数字在0-1内");
+    return;
+  }
   let nums: Array<number> = switchColor(value);
-  console.log(nums);
   nums = nums.map((item) => {
     item += num * (255 - item);
     return Math.floor(item);
   });
-  console.log(nums);
   return `rgb(${nums.join(",")})`;
 };
 
 //颜色变深
-export const darken = (value: string, num: number) => {
+export const darken = (value: string, amount: number) => {
+  if (amount < 0 || amount > 1) {
+    console.warn("light()第二个参数非法，请限制数字在0-1内");
+    return;
+  }
   let nums: Array<number> = switchColor(value);
   if (!nums.length) return null;
   nums = nums.map((item) => {
-    item -= num * item;
+    item -= amount * item;
     return Math.floor(item);
   });
   return `rgb(${nums.join(",")})`;
