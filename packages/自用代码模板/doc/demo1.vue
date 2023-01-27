@@ -1,8 +1,15 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+    <ysyz-button @click="test">测试</ysyz-button>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { app } from "@/main";
+const test = () => {
+  app.config.globalProperties.$loading.fuck();
+};
+</script>
 
 <style scoped lang="scss">
 .container {

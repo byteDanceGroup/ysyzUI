@@ -77,11 +77,11 @@ const props = defineProps({
   },
   res: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   back: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 });
 const slots = useSlots();

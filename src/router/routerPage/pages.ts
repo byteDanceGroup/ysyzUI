@@ -29,6 +29,11 @@ export default [
         name: "pageHeader",
         component: () => import("../../../packages/pageHeader/doc/doc.md"),
       },
+      {
+        path: "loadingBar",
+        name: "loadingBar",
+        component: () => import("../../../packages/loadingBar/doc/doc.md"),
+      },
     ],
   },
 ];

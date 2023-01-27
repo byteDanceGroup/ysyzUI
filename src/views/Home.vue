@@ -64,6 +64,7 @@ const switchMenu = (item: { name: any }, index: number) => {
     height: auto;
     overflow-y: auto;
     padding-left: 40px;
+    padding-bottom: 40px;
     box-sizing: border-box;
   }
   .router-view {
