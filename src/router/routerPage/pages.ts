@@ -34,6 +34,11 @@ export default [
         name: "loadingBar",
         component: () => import("../../../packages/loadingBar/doc/doc.md"),
       },
+      {
+        path: "Card",
+        name: "Card",
+        component: () => import("../../../packages/card/doc/doc.md"),
+      },
     ],
   },
 ];

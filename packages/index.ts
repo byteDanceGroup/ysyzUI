@@ -3,12 +3,14 @@ import DescriptionList from "./descriptionList/index";
 import Description from "./description/index";
 import PageHeader from "./pageHeader/index";
 import LoadingBar from "./LoadingBar/index";
+import Card from "./card/index"
 const install = (app: { use: (arg0: any) => void }) => {
   app.use(Button);
   app.use(DescriptionList);
   app.use(Description);
   app.use(PageHeader);
   app.use(LoadingBar);
+  app.use(Card)
 };
 const QUI = {
   install,
@@ -17,4 +19,5 @@ export { Button };
 export { DescriptionList };
 export { Description };
 export { LoadingBar };
+export{Card}
 export default QUI;
