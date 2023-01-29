@@ -34,6 +34,11 @@ export default [
         name: "loadingBar",
         component: () => import("../../../packages/loadingBar/doc/doc.md"),
       },
+      {
+        path: "menu",
+        name: "menu",
+        component: () => import("../../../packages/menu/doc/doc.md"),
+      },
     ],
   },
 ];
