@@ -1,6 +1,6 @@
 <template>
     <div >
-        <Button @click="codeEvent">显示代码</Button>
+        <ysyz-button @click="codeEvent">显示代码</ysyz-button>
     </div>
     <div class="code" :class="`${isShow?'hidden':' '}`">
         <pre>
@@ -50,7 +50,7 @@ onMounted(()=>{
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .hidden{
     display: none;
 }

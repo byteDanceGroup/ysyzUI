@@ -34,6 +34,26 @@ export default [
         name: "loadingBar",
         component: () => import("../../../packages/loadingBar/doc/doc.md"),
       },
+      {
+        path: "Card",
+        name: "Card",
+        component: () => import("../../../packages/card/doc/doc.md"),
+      },
+      {
+        path: "List",
+        name: "List",
+        component: () => import("../../../packages/List/doc/doc.md"),
+      },
+      {
+        path: "Page",
+        name: "Page",
+        component: () => import("../../../packages/Page/doc/doc.md"),
+      },
+      {
+        path: "GlobalFooter",
+        name: "GlobalFooter",
+        component: () => import("../../../packages/GlobalFooter/doc/doc.md"),
+      },
     ],
   },
 ];

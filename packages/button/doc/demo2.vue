@@ -1,14 +1,14 @@
 <template>
     <div class="container">
-        <Button ghost>测试</Button>
-    <Button ghost>Defalut</Button>
-    <Button type="primary" ghost>Primary</Button>
-    <Button type="dashed" ghost>Dashed</Button>
-    <Button type="text" ghost>Text</Button>
-    <Button type="info" ghost>Info</Button>
-    <Button type="success" ghost>Success</Button>
-    <Button type="warning" ghost>Warning</Button>
-    <Button type="error" ghost>Error</Button>
+        <ysyz-button ghost>测试</ysyz-button>
+    <ysyz-button ghost>Defalut</ysyz-button>
+    <ysyz-button type="primary" ghost>Primary</ysyz-button>
+    <ysyz-button type="dashed" ghost>Dashed</ysyz-button>
+    <ysyz-button type="text" ghost>Text</ysyz-button>
+    <ysyz-button type="info" ghost>Info</ysyz-button>
+    <ysyz-button type="success" ghost>Success</ysyz-button>
+    <ysyz-button type="warning" ghost>Warning</ysyz-button>
+    <ysyz-button type="error" ghost>Error</ysyz-button>
     </div>
 </template>
 
