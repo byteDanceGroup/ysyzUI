@@ -50,7 +50,7 @@ onMounted(()=>{
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .hidden{
     display: none;
 }
