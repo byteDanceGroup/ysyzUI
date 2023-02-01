@@ -7,6 +7,13 @@ import Menu from "./menu/index";
 import MenuItem from "./menuItem/index";
 import Submenu from "./submenu/index";
 import MenuGroup from "./menuGroup/index";
+import Card from "./card/index";
+import List from "./List/index";
+import ListItem from "./listItem/index";
+import Page from "./page/index";
+import GlobalFooter from "./GlobalFooter/index";
+import Grid from "./grid/index";
+import GridItem from "./gridItem/index";
 const install = (app: { use: (arg0: any) => void }) => {
   app.use(Button);
   app.use(DescriptionList);
@@ -17,11 +24,18 @@ const install = (app: { use: (arg0: any) => void }) => {
   app.use(MenuItem);
   app.use(Submenu);
   app.use(MenuGroup);
+  app.use(Card);
+  app.use(List);
+  app.use(ListItem);
+  app.use(Page);
+  app.use(GlobalFooter);
+  app.use(Grid);
+  app.use(GridItem);
 };
 const QUI = {
   install,
 };
-export { Button };
+export { Button, GlobalFooter };
 export { DescriptionList };
 export { Description };
 export { PageHeader };
@@ -30,4 +44,10 @@ export { Menu };
 export { MenuItem };
 export { Submenu };
 export { MenuGroup };
+export { Card };
+export { List };
+export { ListItem };
+export { Page };
+export { Grid };
+export { GridItem };
 export default QUI;

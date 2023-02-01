@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="left-menu">
-      <ysyz-menu :to-auto="true" default-active="button">
+      <ysyz-menu :to-auto="true" :default-active="route.name">
         <ysyz-menuItem
           v-for="(item, index) in menuList[0].children"
           :key="index"
@@ -21,7 +21,9 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute } from "vue-router";
 import menuList from "../router/routerPage/pages";
+const route = useRoute();
 </script>
 
 <style lang="scss" scoped>
@@ -29,22 +31,26 @@ import menuList from "../router/routerPage/pages";
   width: 100%;
   height: 100vh;
   display: flex;
+
   .left-menu {
     height: auto;
     overflow-y: auto;
     border-right: 1px solid #f0f0f0;
+
     li {
       list-style: none;
       line-height: 40px;
       padding: 0 10px;
       cursor: pointer;
     }
+
     li.active {
       border-right: 4px solid #0e80eb;
       color: #0e80eb;
       background: rgba(14, 128, 235, 0.1);
     }
   }
+
   .mid {
     border-right: 1px solid #f0f0f0;
     min-width: 700px;
@@ -55,6 +61,7 @@ import menuList from "../router/routerPage/pages";
     padding-bottom: 40px;
     box-sizing: border-box;
   }
+
   .router-view {
     flex: 1;
   }
