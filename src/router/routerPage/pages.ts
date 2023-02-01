@@ -9,16 +9,11 @@ export default [
         name: "button",
         component: () => import("../../../packages/button/doc/doc.md"),
       },
-      {
+      { // 更改重定位
         path: "/",
-        name: "button",
-        component: () => import("../../../packages/button/doc/doc.md"),
+        redirect: 'button',
       },
-      {
-        path: "wenhao",
-        name: "wenhao",
-        component: () => import("../../../packages/wenhao-button/View.vue"),
-      },
+      // 删除文浩button
       {
         path: "descriptionList",
         name: "descriptionList",
@@ -34,6 +29,11 @@ export default [
         name: "loadingBar",
         component: () => import("../../../packages/loadingBar/doc/doc.md"),
       },
+      {
+        path: "grid",
+        name: "grid",
+        component: () => import("../../../packages/grid/doc/doc.md"),
+      }
       {
         path: "Card",
         name: "Card",
