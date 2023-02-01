@@ -3,15 +3,12 @@ export default [
     path: "/",
     name: "home",
     component: () => import("../../views/Home.vue"),
+    redirect: "button",
     children: [
       {
         path: "button",
         name: "button",
         component: () => import("../../../packages/button/doc/doc.md"),
-      },
-      { // 更改重定位
-        path: "/",
-        redirect: 'button',
       },
       // 删除文浩button
       {
@@ -30,10 +27,15 @@ export default [
         component: () => import("../../../packages/loadingBar/doc/doc.md"),
       },
       {
+        path: "menu",
+        name: "menu",
+        component: () => import("../../../packages/menu/doc/doc.md"),
+      },
+      {
         path: "grid",
         name: "grid",
         component: () => import("../../../packages/grid/doc/doc.md"),
-      }
+      },
       {
         path: "Card",
         name: "Card",
