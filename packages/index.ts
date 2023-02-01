@@ -7,6 +7,7 @@ import Card from "./card/index"
 import List from "./List/index"
 import ListItem from "./listItem/index"
 import Page from "./page/index"
+import GlobalFooter from "./GlobalFooter/index"
 const install = (app: { use: (arg0: any) => void }) => {
   app.use(Button);
   app.use(DescriptionList);
@@ -17,11 +18,12 @@ const install = (app: { use: (arg0: any) => void }) => {
   app.use(List);
   app.use(ListItem)
   app.use(Page)
+  app.use(GlobalFooter)
 };
 const QUI = {
   install,
 };
-export { Button};
+export { Button,GlobalFooter};
 export { DescriptionList };
 export { Description };
 export { LoadingBar };

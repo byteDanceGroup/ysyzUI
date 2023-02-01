@@ -8,11 +8,14 @@
       <ysyz-listItem>1</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
+      <template #footer>
+            这里是footer
+        </template>
     </ysyz-list>
     <ysyz-list border size="small">
+      <ysyz-listItem>怎么会重复</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
-      <ysyz-listItem>1</ysyz-listItem>
-      <ysyz-listItem>1</ysyz-listItem>
+      <ysyz-listItem>12</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
     </ysyz-list>
     <ysyz-list border size="large">
@@ -20,6 +23,7 @@
       <ysyz-listItem>1</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
+      <ysyz-listItem>123</ysyz-listItem>
     </ysyz-list>
   </div>
 </template>

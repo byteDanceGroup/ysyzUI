@@ -49,6 +49,11 @@ export default [
         name: "Page",
         component: () => import("../../../packages/Page/doc/doc.md"),
       },
+      {
+        path: "GlobalFooter",
+        name: "GlobalFooter",
+        component: () => import("../../../packages/GlobalFooter/doc/doc.md"),
+      },
     ],
   },
 ];

@@ -1,10 +1,10 @@
 <template>
-    <ul :class="simpleWrapClasses"  v-if="simple">
+    <ul :class="simpleWrapClasses"  v-if="props.simple">
         <li
            
             :class="prevClasses"
             @click.stop="prev">
-            <a>logo</a>
+            <a>1</a>
         </li>
         <div :class="simplePagerClasses" :title="currentPage + '/' + allPages">
             <input
@@ -22,21 +22,21 @@
            
             :class="nextClasses"
             @click.stop="next">
-            <a>logo</a>
+            <a>1</a>
         </li>
     </ul>
     <ul :class="wrapClasses" v-else>
-        <span :class="`${prefix}-total`" v-if="showTotal">
-            <slot> 共{{ total }} <template v-if="total <= 1">页</template><template v-else>条</template></slot>
+        <span :class="`${prefix}-total`" v-if="props.showTotal">
+            <slot> 共{{ total }} <template v-if="props.total <= 1">页</template><template v-else>条</template></slot>
         </span>
         <li
             
             :class="prevClasses"
             @click.stop="prev">
-            <a><template v-if="prevText !== ''">{{ prevText }}</template>logo</a>
+            <a><template v-if="props.prevText !== ''">{{ props.prevText }}</template>1</a>
         </li>
         <li title="1" :class="firstPageClasses" @click.stop="changePage(1)"><a>1</a></li>
-        <li  v-if="currentPage > 5" :class="`${prefix}-item-jump-prev`" @click.stop="fastPrev"><a>logo</a></li>
+        <li  v-if="currentPage > 5" :class="`${prefix}-item-jump-prev`" @click.stop="fastPrev"><a>1</a></li>
         <li  v-if="currentPage === 5" :class="`${prefix}-item`" @click.stop="changePage(currentPage - 3)"><a>{{ currentPage - 3 }}</a></li>
         <li  v-if="currentPage - 2 > 1" :class="`${prefix}-item`" @click.stop="changePage(currentPage - 2)"><a>{{ currentPage - 2 }}</a></li>
         <li  v-if="currentPage - 1 > 1" :class="`${prefix}-item`" @click.stop="changePage(currentPage - 1)"><a>{{ currentPage - 1 }}</a></li>
@@ -44,12 +44,12 @@
         <li  v-if="currentPage + 1 < allPages" :class="`${prefix}-item`" @click.stop="changePage(currentPage + 1)"><a>{{ currentPage + 1 }}</a></li>
         <li  v-if="currentPage + 2 < allPages" :class="`${prefix}-item`" @click.stop="changePage(currentPage + 2)"><a>{{ currentPage + 2 }}</a></li>
         <li  v-if="allPages - currentPage === 4" :class="`${prefix}-item`" @click.stop="changePage(currentPage + 3)"><a>{{ currentPage + 3 }}</a></li>
-        <li  v-if="allPages - currentPage >= 5" :class="`${prefix}-item-jump-next`" @click.stop="fastNext"><a>logo</a></li>
+        <li  v-if="allPages - currentPage >= 5" :class="`${prefix}-item-jump-next`" @click.stop="fastNext"><a>1</a></li>
         <li  v-if="allPages > 1" :class="lastPageClasses" @click.stop="changePage(allPages)"><a>{{ allPages }}</a></li>
         <li
             :class="nextClasses"
             @click.stop="next">
-            <a><template v-if="nextText !== ''">{{ nextText }}</template>logo</a>
+            <a><template v-if="props.nextText !== ''">{{ props.nextText }}</template>1</a>
         </li>
 
     </ul>
@@ -60,38 +60,76 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { computed, ref ,watch,defineEmits} from 'vue';
-interface PropsType{
-    current:number,
-    total:number,
-    pageSize:number,
-    pageSizeOpts:number[],
-    placement:string,
-    transfer:boolean,
-    size:string,
-    simple:boolean,
-    showTotal:boolean,
-    showElevator:boolean,
-    showSizer:boolean,
-    className:string,
-    styles:Object,
-    prevText:string;
-    nextText:string
-}
+import myValidat from './func';
+import { computed, ref ,watch} from 'vue';
+
 const emit=  defineEmits(["update:current",'on-change','on-page-size-change'])
-const props = withDefaults(defineProps<PropsType>(),{
-    current:1,
-    total:0,
-    pageSize:10,
-    pageSizeOpts:()=>[10, 20, 30, 40],
-    transfer:false,
-    placement:'bottom',
-    simple:false,
-    showTotal:false,
-    showElevator:false,
-    showSizer:false,
-    prevText:'',
-    nextText:''
+
+const props = defineProps({
+    current: {
+                type: Number,
+                default: 1
+            },
+            total: {
+                type: Number,
+                default: 0
+            },
+            pageSize: {
+                type: Number,
+                default: 10
+            },
+            pageSizeOpts: {
+                type: Array,
+                default () {
+                    return [10, 20, 30, 40];
+                }
+            },
+            placement: {
+                validator (value:string) {
+                    return myValidat(value, ['top', 'bottom']);
+                },
+                default: 'bottom'
+            },
+            transfer: {
+                type: Boolean,
+                default:false
+            },
+            size: {
+                validator (value:string) {
+                    return myValidat(value, ['small']);
+                }
+            },
+            simple: {
+                type: Boolean,
+                default: false
+            },
+            showTotal: {
+                type: Boolean,
+                default: false
+            },
+            showElevator: {
+                type: Boolean,
+                default: false
+            },
+            showSizer: {
+                type: Boolean,
+                default: false
+            },
+            className: {
+                type: String
+            },
+            styles: {
+                type: Object
+            },
+            prevText: {
+                type: String,
+                default: ''
+            },
+            nextText: {
+                type: String,
+                default: ''
+            }
+
 })
 const prefix = 'ysyz-page'
 let currentPage= ref(props.current);
@@ -114,6 +152,7 @@ const isSmall = computed(()=>{
 })
 const allPages = computed(()=>{
     const allPage = Math.ceil(props.total / currentPageSize.value)
+    console.log(props.total)
     return (allPage === 0) ? 1:allPage;
 })
 const simpleWrapClasses = computed(()=>{
