@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <div class="left-menu">
-      <li
-        @click="switchMenu(item, index)"
-        v-for="(item, index) in menuList[0].children"
-        :key="index"
-        :class="{ active: activeIndex == index }"
-      >
-        {{ item.name }}
-      </li>
+      <ysyz-menu :to-auto="true" :default-active="route.name">
+        <ysyz-menuItem
+          v-for="(item, index) in menuList[0].children"
+          :key="index"
+          :name="item.name"
+          >{{ item.name }}</ysyz-menuItem
+        >
+      </ysyz-menu>
     </div>
     <div class="mid">
       <div class="router-view">
@@ -21,28 +21,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { onBeforeRouteUpdate, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import menuList from "../router/routerPage/pages";
-console.log(menuList[0].children[0]);
-const activeIndex = ref(0);
-const router = useRouter();
-// 保证侧边栏与路由的对应正确
-onBeforeRouteUpdate((to) => {
-  menuList[0].children.some((item, index) => {
-    if (item.path === to.path.slice(1)) {
-      activeIndex.value = index;
-      return true;
-    }
-  });
-});
-
-const switchMenu = (item: { name: any }, index: number) => {
-  activeIndex.value = index;
-  router.push({
-    name: item.name,
-  });
-};
+const route = useRoute();
 </script>
 
 <style lang="scss" scoped>
@@ -52,7 +33,6 @@ const switchMenu = (item: { name: any }, index: number) => {
   display: flex;
 
   .left-menu {
-    width: 160px;
     height: auto;
     overflow-y: auto;
     border-right: 1px solid #f0f0f0;
