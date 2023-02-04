@@ -21,20 +21,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
 import { onBeforeRouteUpdate, useRouter } from "vue-router";
 import menuList from "../router/routerPage/pages";
-console.log(menuList[0].children[0]);
+// console.log(menuList[0].children[0]);
 const activeIndex = ref(0);
 const router = useRouter();
-// 保证侧边栏与路由的对应正确
-onBeforeRouteUpdate((to) => {
+// 根据当前的实际路径获取ActiveIndex
+const getActiveIndex = (path: string) => {
   menuList[0].children.some((item, index) => {
-    if (item.path === to.path.slice(1)) {
+    if (item.path.toLowerCase() === path.slice(1).toLowerCase()) {
       activeIndex.value = index;
       return true;
     }
   });
+}
+
+// 在保证侧边栏与路由的对应正确
+onBeforeMount(() => {
+  getActiveIndex(router.currentRoute.value.path);
+})
+
+// 保证侧边栏与路由的对应正确
+onBeforeRouteUpdate((to) => {
+  getActiveIndex(to.path);
 });
 
 const switchMenu = (item: { name: any }, index: number) => {
