@@ -34,7 +34,7 @@ export default [
         path: "grid",
         name: "Grid",
         component: () => import("../../../packages/grid/doc/doc.md"),
-      }
+      },
       {
         path: "Card",
         name: "Card",
