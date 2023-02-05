@@ -46,8 +46,8 @@ function handleResize() {
 }
 
 onMounted(() => {
-	if (GridInstance.square)
-		height.value = gridItem.value.clientWidth + 'px';
+	if (!GridInstance.square) return;
+	height.value = gridItem.value.clientWidth + 'px';
 	window.addEventListener('resize', handleResize);
 });
 </script>

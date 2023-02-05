@@ -65,7 +65,7 @@ onMounted(() => {
 		line-height: 38px;
 		padding-left: $padding-md;
 		position: relative;
-		border-bottom: $border-width-base $border-style-base $border-color-base ;
+		border-bottom: $border-width-base $border-style-base $border-color-base;
 		cursor: pointer;
 
 		.ysyz-collapse-header-icon {
