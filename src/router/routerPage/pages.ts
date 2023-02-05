@@ -10,7 +10,6 @@ export default [
         name: "button",
         component: () => import("../../../packages/button/doc/doc.md"),
       },
-      // 删除文浩button
       {
         path: "descriptionList",
         name: "descriptionList",
@@ -33,7 +32,7 @@ export default [
       },
       {
         path: "grid",
-        name: "grid",
+        name: "Grid",
         component: () => import("../../../packages/grid/doc/doc.md"),
       },
       {
@@ -56,6 +55,11 @@ export default [
         name: "GlobalFooter",
         component: () => import("../../../packages/GlobalFooter/doc/doc.md"),
       },
+      {
+        path: 'collapse',
+        name: 'Collapse',
+        component: () => import("../../../packages/collapse/doc/doc.md"),
+      }
     ],
   },
 ];
