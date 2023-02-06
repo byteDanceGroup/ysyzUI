@@ -56,6 +56,7 @@ export default [
         component: () => import("../../../packages/GlobalFooter/doc/doc.md"),
       },
       {
+
         path: 'collapse',
         name: 'Collapse',
         component: () => import("../../../packages/collapse/doc/doc.md"),
@@ -65,6 +66,17 @@ export default [
         name: 'FooterToolbar',
         component: () => import("../../../packages/footerToolbar/doc/doc.md"),
       }
+
+        path: "Icon",
+        name: "Icon",
+        component: () => import("../../../packages/icon/doc/doc.md"),
+      },
+      {
+        path: "Switch",
+        name: "Switch",
+        component: () => import("../../../packages/switch/doc/doc.md"),
+      },
+
     ],
   },
 ];
