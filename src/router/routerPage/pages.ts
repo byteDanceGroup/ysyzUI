@@ -65,8 +65,8 @@ export default [
         path: 'footertoolbar',
         name: 'FooterToolbar',
         component: () => import("../../../packages/footerToolbar/doc/doc.md"),
-      }
-
+      },
+      {
         path: "Icon",
         name: "Icon",
         component: () => import("../../../packages/icon/doc/doc.md"),
