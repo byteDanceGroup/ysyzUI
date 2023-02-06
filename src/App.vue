@@ -1,7 +1,6 @@
 <template>
   <div>
     <router-view></router-view>
-    这里用来测试冲突的解决
   </div>
 </template>
 
@@ -9,9 +8,11 @@
 
 <style lang="scss">
 html,
-body {
+body,a,ul,li {
   margin: 0;
   padding: 0;
+  list-style:none;
+  
 }
 .container {
   width: 400px;

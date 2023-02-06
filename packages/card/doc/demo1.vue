@@ -1,7 +1,8 @@
 <template>
     <div>
-        <ysyz-card>这里是Card
+        <ysyz-card :padding="30">这里是基础Card
             <template #title>
+                <ysyz-icon type="success"></ysyz-icon>
             Classic film
         </template>
         </ysyz-card>
