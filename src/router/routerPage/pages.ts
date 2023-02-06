@@ -3,21 +3,12 @@ export default [
     path: "/",
     name: "home",
     component: () => import("../../views/Home.vue"),
+    redirect: "button",
     children: [
       {
         path: "button",
         name: "button",
         component: () => import("../../../packages/button/doc/doc.md"),
-      },
-      {
-        path: "/",
-        name: "button",
-        component: () => import("../../../packages/button/doc/doc.md"),
-      },
-      {
-        path: "wenhao",
-        name: "wenhao",
-        component: () => import("../../../packages/wenhao-button/View.vue"),
       },
       {
         path: "descriptionList",
@@ -33,6 +24,16 @@ export default [
         path: "loadingBar",
         name: "loadingBar",
         component: () => import("../../../packages/loadingBar/doc/doc.md"),
+      },
+      {
+        path: "menu",
+        name: "menu",
+        component: () => import("../../../packages/menu/doc/doc.md"),
+      },
+      {
+        path: "grid",
+        name: "Grid",
+        component: () => import("../../../packages/grid/doc/doc.md"),
       },
       {
         path: "Card",
@@ -54,6 +55,16 @@ export default [
         name: "GlobalFooter",
         component: () => import("../../../packages/GlobalFooter/doc/doc.md"),
       },
+      {
+        path: 'collapse',
+        name: 'Collapse',
+        component: () => import("../../../packages/collapse/doc/doc.md"),
+      },
+      {
+        path: 'footertoolbar',
+        name: 'FooterToolbar',
+        component: () => import("../../../packages/footerToolbar/doc/doc.md"),
+      }
     ],
   },
 ];
