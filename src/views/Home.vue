@@ -2,12 +2,9 @@
   <div class="container">
     <div class="left-menu">
       <ysyz-menu :to-auto="true" :default-active="route.name">
-        <ysyz-menuItem
-          v-for="(item, index) in menuList[0].children"
-          :key="index"
-          :name="item.name"
-          >{{ item.name }}</ysyz-menuItem
-        >
+        <ysyz-menuItem v-for="(item, index) in menuList[0].children" :key="index" :name="item.name">{{
+          item.name
+        }}</ysyz-menuItem>
       </ysyz-menu>
     </div>
     <div class="mid">

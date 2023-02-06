@@ -36,9 +36,19 @@ const height = ref<string>('');
 
 const gridItem = ref();
 
-onMounted(() => {
-	if (GridInstance.square)
+let timer: any = null;
+function handleResize() {
+	if (timer) return;
+	timer = setTimeout(() => {
 		height.value = gridItem.value.clientWidth + 'px';
+		timer = null;
+	}, 200);
+}
+
+onMounted(() => {
+	if (!GridInstance.square) return;
+	height.value = gridItem.value.clientWidth + 'px';
+	window.addEventListener('resize', handleResize);
 });
 </script>
 

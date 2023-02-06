@@ -36,6 +36,8 @@ provide('GridInstance', props);
 </script>
 
 <style lang="scss">
+@import "../../src/style/style.scss";
+
 .ysyz-grid {
 	display: grid;
 	margin: 0 auto;
@@ -45,11 +47,11 @@ provide('GridInstance', props);
 .ysyz-grid-border {
 	&>.ysyz-grid-item {
 		box-shadow:
-			1px 0 0 0 #e8eaec,
-			0 1px 0 0 #e8eaec,
-			1px 1px 0 0 #e8eaec,
-			inset 1px 0 0 0 #e8eaec,
-			inset 0 1px 0 0 #e8eaecff;
+			1px 0 0 0 $border-color-split,
+			0 1px 0 0 $border-color-split,
+			1px 1px 0 0 $border-color-split,
+			inset 1px 0 0 0 $border-color-split,
+			inset 0 1px 0 0 $border-color-split;
 	}
 }
 
