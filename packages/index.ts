@@ -13,9 +13,10 @@ import ListItem from "./listItem/index";
 import Page from "./page/index";
 import GlobalFooter from "./GlobalFooter/index";
 import Grid from "./grid/index";
-import GridItem from "./gridItem/index"
-import Collapse from "./collapse/index"
-import Panel from "./panel/index"
+import GridItem from "./gridItem/index";
+import Collapse from "./collapse/index";
+import Panel from "./panel/index";
+import FooterToolbar from './footerToolbar/index';
 const install = (app: { use: (arg0: any) => void }) => {
   app.use(Button);
   app.use(DescriptionList);
@@ -35,6 +36,7 @@ const install = (app: { use: (arg0: any) => void }) => {
   app.use(GridItem);
   app.use(Collapse);
   app.use(Panel);
+  app.use(FooterToolbar);
 };
 const QUI = {
   install,
@@ -53,7 +55,8 @@ export { List };
 export { ListItem };
 export { Page };
 export { Grid };
-export { GridItem }
-export { Collapse }
-export { Panel }
+export { GridItem };
+export { Collapse };
+export { Panel };
+export { FooterToolbar };
 export default QUI;

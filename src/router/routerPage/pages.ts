@@ -59,6 +59,11 @@ export default [
         path: 'collapse',
         name: 'Collapse',
         component: () => import("../../../packages/collapse/doc/doc.md"),
+      },
+      {
+        path: 'footertoolbar',
+        name: 'FooterToolbar',
+        component: () => import("../../../packages/footerToolbar/doc/doc.md"),
       }
     ],
   },

@@ -71,7 +71,6 @@ provide('getActiveKey', getActiveKey);
 
 		&>.ysyz-collapse-content {
 			background-color: transparent;
-			padding-top: 0 !important;
 		}
 	}
 }
