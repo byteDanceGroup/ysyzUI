@@ -70,7 +70,7 @@ export default [
         path: 'table',
         name: 'Table',
         component: () => import("../../../packages/table/doc/doc.md"),
-      }
+      },
       {
         path: "Icon",
         name: "Icon",
