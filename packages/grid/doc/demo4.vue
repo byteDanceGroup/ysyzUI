@@ -1,9 +1,8 @@
 <template>
 	<div>
-		<ysyz-button @click="handleClick()" type="primary">
-			{{ text }}
-		</ysyz-button>
-		<ysyz-grid :border="flag">
+		显示边框
+		<ysyz-switch :model-value="border" @click="handleClick()" />
+		<ysyz-grid :border="border">
 			<ysyz-grid-item>1</ysyz-grid-item>
 			<ysyz-grid-item>2</ysyz-grid-item>
 			<ysyz-grid-item>3</ysyz-grid-item>
@@ -17,13 +16,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-const flag = ref<boolean>(false);
-
-const text = ref<string>('显示边框');
+const border = ref<boolean>(false);
 
 function handleClick(): void {
-	flag.value = !flag.value;
-	if (flag.value) text.value = '隐藏边框';
-	else text.value = '显示边框';
+	border.value = !border.value;
 }
 </script>
