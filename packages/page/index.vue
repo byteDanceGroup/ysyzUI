@@ -4,7 +4,7 @@
            
             :class="prevClasses"
             @click.stop="prev">
-            <a>1</a>
+            <a><ysyz-icon type="left"></ysyz-icon></a>
         </li>
         <div :class="simplePagerClasses" :title="currentPage + '/' + allPages">
             <input
@@ -22,7 +22,7 @@
            
             :class="nextClasses"
             @click.stop="next">
-            <a>1</a>
+            <a><ysyz-icon type="right"></ysyz-icon></a>
         </li>
     </ul>
     <ul :class="wrapClasses" v-else>
@@ -30,13 +30,12 @@
             <slot> 共{{ total }} <template v-if="props.total <= 1">页</template><template v-else>条</template></slot>
         </span>
         <li
-            
             :class="prevClasses"
             @click.stop="prev">
-            <a><template v-if="props.prevText !== ''">{{ props.prevText }}</template>1</a>
+            <a><template v-if="props.prevText !== ''">{{ props.prevText }}</template><ysyz-icon type="left"></ysyz-icon></a>
         </li>
         <li title="1" :class="firstPageClasses" @click.stop="changePage(1)"><a>1</a></li>
-        <li  v-if="currentPage > 5" :class="`${prefix}-item-jump-prev`" @click.stop="fastPrev"><a>1</a></li>
+        <li  v-if="currentPage > 5" :class="`${prefix}-item-jump-prev`" @click.stop="fastPrev"><ysyz-icon type="left"></ysyz-icon><ysyz-icon type="left"></ysyz-icon></li>
         <li  v-if="currentPage === 5" :class="`${prefix}-item`" @click.stop="changePage(currentPage - 3)"><a>{{ currentPage - 3 }}</a></li>
         <li  v-if="currentPage - 2 > 1" :class="`${prefix}-item`" @click.stop="changePage(currentPage - 2)"><a>{{ currentPage - 2 }}</a></li>
         <li  v-if="currentPage - 1 > 1" :class="`${prefix}-item`" @click.stop="changePage(currentPage - 1)"><a>{{ currentPage - 1 }}</a></li>
@@ -44,16 +43,32 @@
         <li  v-if="currentPage + 1 < allPages" :class="`${prefix}-item`" @click.stop="changePage(currentPage + 1)"><a>{{ currentPage + 1 }}</a></li>
         <li  v-if="currentPage + 2 < allPages" :class="`${prefix}-item`" @click.stop="changePage(currentPage + 2)"><a>{{ currentPage + 2 }}</a></li>
         <li  v-if="allPages - currentPage === 4" :class="`${prefix}-item`" @click.stop="changePage(currentPage + 3)"><a>{{ currentPage + 3 }}</a></li>
-        <li  v-if="allPages - currentPage >= 5" :class="`${prefix}-item-jump-next`" @click.stop="fastNext"><a>1</a></li>
+        <li  v-if="allPages - currentPage >= 5" :class="`${prefix}-item-jump-next`" @click.stop="fastNext"><ysyz-icon type="right"></ysyz-icon><ysyz-icon type="right"></ysyz-icon></li>
         <li  v-if="allPages > 1" :class="lastPageClasses" @click.stop="changePage(allPages)"><a>{{ allPages }}</a></li>
         <li
             :class="nextClasses"
             @click.stop="next">
-            <a><template v-if="props.nextText !== ''">{{ props.nextText }}</template>1</a>
+            <a><template v-if="props.nextText !== ''">{{ props.nextText }}</template>
+                <ysyz-icon type="right"></ysyz-icon></a>
         </li>
-
+        <optionVue
+            :show-sizer="showSizer"
+            :page-size="currentPageSize"
+            :page-size-opts="pageSizeOpts"
+            :placement="placement"
+            :transfer="transfer"
+            :show-elevator="showElevator"
+            :_current.once="currentPage"
+            :current="currentPage"
+            :all-pages="allPages"
+            :is-small="isSmall"
+            @on-size="onSize"
+            @on-page="onPage">
+            <slot></slot>
+        </optionVue>
     </ul>
 </template>
+
 <script lang="ts">
 export default {
   name: "ysyz-page",
@@ -62,8 +77,8 @@ export default {
 <script setup lang="ts">
 import myValidat from './func';
 import { computed, ref ,watch} from 'vue';
-
-const emit=  defineEmits(["update:current",'on-change','on-page-size-change'])
+import optionVue from './option.vue';
+const emit=  defineEmits(["update:current",'on-change','on-prev', 'on-next','on-page-size-change'])
 
 const props = defineProps({
     current: {
@@ -222,14 +237,18 @@ const prev = ()=>{
     if (current <= 1) {
         return false;
     }
+    emit('on-prev',current-1)
     changePage(current - 1);
+    console.log('触发前一个')
 }
 const next = ()=>{
     const current = currentPage.value;
     if (current >= allPages.value) {
         return false;
     }
+    emit('on-next', current+1)
     changePage(current + 1);
+    console.log('触发后一个')
 }
 const fastPrev = ()=>{
     const page = currentPage.value- 5;
@@ -247,9 +266,9 @@ const fastNext = ()=>{
         changePage(page);
     }  
 }
-const onSize = ()=>{
-    currentPageSize.value = props.pageSize;
-    emit('on-page-size-change', props.pageSize);
+const onSize = (pageSize)=>{
+    currentPageSize.value = pageSize;
+    emit('on-page-size-change', pageSize);
     changePage(1);
 }
 const onPage = (page)=>{
@@ -292,7 +311,6 @@ const keyUp = (e)=>{
 $prefix : ysyz-page;
 .#{$prefix}{
     &:after {
-        content: '';
         display: block;
         height: 0;
         clear: both;
@@ -344,7 +362,6 @@ $prefix : ysyz-page;
     }
     &-item-jump-prev, &-item-jump-next {
         &:after {
-            content: "•••";
             display: block;
             letter-spacing: 1px;
             color: #ccc;
@@ -432,6 +449,7 @@ $prefix : ysyz-page;
     }
 
     &-disabled {
+        opacity: .5;
         cursor: not-allowed;
         a {
             color: #ccc;
@@ -464,9 +482,9 @@ $prefix : ysyz-page;
             line-height: 32px;
 
             input {
-                .input{border-radius: 4px;
+                border-radius: 4px;
                 margin: 0 8px;
-                width: 50px;}
+                width: 50px;
                 
             }
         }
