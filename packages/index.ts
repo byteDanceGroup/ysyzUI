@@ -18,6 +18,7 @@ import GridItem from "./gridItem/index";
 import Collapse from "./collapse/index";
 import Panel from "./panel/index";
 import FooterToolbar from './footerToolbar/index';
+import Table from './table/index';
 
 import Icon from './icon/index'
 import Switch from './switch/index'
@@ -43,6 +44,7 @@ const install = (app: { use: (arg0: any) => void }) => {
   app.use(Collapse);
   app.use(Panel);
   app.use(FooterToolbar);
+  app.use(Table);
 
   app.use(Icon);
   app.use(Switch)
@@ -69,4 +71,5 @@ export { GridItem };
 export { Collapse };
 export { Panel };
 export { FooterToolbar };
+export { Table };
 export default QUI;

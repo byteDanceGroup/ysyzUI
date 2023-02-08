@@ -17,8 +17,6 @@ const props = withDefaults(defineProps<FooterToolbar>(), {
 </script>
 
 <style lang="scss" scoped>
-@import "../../src/style/style.scss";
-
 .ysyz-footer-toolbar {
 	box-sizing: border-box;
 	width: 100%;
