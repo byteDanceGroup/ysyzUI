@@ -81,6 +81,11 @@ export default [
         name: "Switch",
         component: () => import("../../../packages/switch/doc/doc.md"),
       },
+      {
+        path: "badge",
+        name: "Badge",
+        component: () => import("../../../packages/badge/doc/doc.md"),
+      }
     ],
   },
 ];
