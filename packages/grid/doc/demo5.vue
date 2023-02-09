@@ -1,8 +1,10 @@
 <template>
 	<div>
 		<div class="buttons" style="margin-bottom: 10px;">
-			<ysyz-button @click="clickBorder()" type="primary">{{ borderText }}</ysyz-button>
-			<ysyz-button @click="clickHover()" type="primary">{{ hoverText }}</ysyz-button>
+			显示边框
+			<ysyz-switch :model-value="border" @click="clickBorder()" />
+			开启悬停
+			<ysyz-switch :model-value="hover" @click="clickHover()" />
 		</div>
 		<ysyz-grid :border="border" :hover="hover">
 			<ysyz-grid-item>1</ysyz-grid-item>
@@ -25,19 +27,11 @@ const border = ref<boolean>(true);
 
 const hover = ref<boolean>(true);
 
-const borderText = ref<string>('隐藏边框');
-
-const hoverText = ref<string>('关闭悬停');
-
 function clickBorder(): void {
 	border.value = !border.value;
-	if (border.value) borderText.value = '隐藏边框';
-	else borderText.value = '显示边框';
 }
 
 function clickHover(): void {
 	hover.value = !hover.value;
-	if (hover.value) hoverText.value = '关闭悬停';
-	else hoverText.value = '开启悬停';
 }
 </script>

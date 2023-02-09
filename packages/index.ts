@@ -14,14 +14,13 @@ import Page from "./page/index";
 import GlobalFooter from "./GlobalFooter/index";
 import Grid from "./grid/index";
 import GridItem from "./gridItem/index";
-
 import Collapse from "./collapse/index";
 import Panel from "./panel/index";
 import FooterToolbar from './footerToolbar/index';
 import Table from './table/index';
-
-import Icon from './icon/index'
-import Switch from './switch/index'
+import Icon from './icon/index';
+import Switch from './switch/index';
+import Badge from './badge/index';
 
 const install = (app: { use: (arg0: any) => void }) => {
   app.use(Button);
@@ -40,20 +39,18 @@ const install = (app: { use: (arg0: any) => void }) => {
   app.use(GlobalFooter);
   app.use(Grid);
   app.use(GridItem);
-
   app.use(Collapse);
   app.use(Panel);
   app.use(FooterToolbar);
   app.use(Table);
-
   app.use(Icon);
-  app.use(Switch)
-
+  app.use(Switch);
+  app.use(Badge);
 };
 const QUI = {
   install,
 };
-export { Button, GlobalFooter ,Icon,Switch};
+export { Button, GlobalFooter, Icon, Switch };
 export { DescriptionList };
 export { Description };
 export { PageHeader };
@@ -72,4 +69,5 @@ export { Collapse };
 export { Panel };
 export { FooterToolbar };
 export { Table };
+export { Badge };
 export default QUI;
