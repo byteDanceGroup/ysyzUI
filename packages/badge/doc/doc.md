@@ -6,6 +6,8 @@ import demo3 from './demo3.vue';
 import demo4 from './demo4.vue';
 import demo5 from './demo5.vue';
 import demo6 from './demo6.vue';
+import demo7 from './demo7.vue';
+import demo8 from './demo8.vue';
 </script>
 
 # Badge 徽标数
@@ -98,5 +100,34 @@ import demo6 from './demo6.vue';
 用于表示状态的小圆点。
 
 <preview comp-name='badge' demo-name='demo6'/>
+
+<br/>
+
+<!-- demo7 -->
+---
+
+<br/>
+
+<demo7/>
+
+预设颜色：<br/>
+使用 `type` 属性，可以设置不同的颜色。
+
+<preview comp-name='badge' demo-name='demo7'/>
+
+<br/>
+
+<!-- demo8 -->
+---
+
+<br/>
+
+<demo8/>
+
+角标偏移：<br/>
+使用 `offset` 属性，可以设置不同的偏移坐标。<br/>
+` offset: [offsetX: number, offsetY: number] `
+
+<preview comp-name='badge' demo-name='demo8'/>
 
 <br/>
