@@ -1,17 +1,18 @@
 <template>
 	<div class="ysyz-badge">
 		<div v-show="statusShow">
-			<span class="ysyz-badge-status"></span>
+			<span :class="['ysyz-badge-status', statusClassName]"></span>
 			{{ props.text }}
 		</div>
 		<div v-show="!statusShow">
-			<span v-show="slotIndex === 3" :class="[props.className, 'ysyz-badge-tip']" :style="{ position: pos }">
+			<span v-show="slotIndex === 3" :class="[props.className, typeClassName, 'ysyz-badge-tip']"
+				:style="slotStyle">
 				{{ content }}
 			</span>
-			<span v-show="slotIndex === 2" :class="{ 'ysyz-badge-content': slots.count }" :style="{ position: pos }">
+			<span v-show="slotIndex === 2" :class="{ 'ysyz-badge-content': slots.count }" :style="slotStyle">
 				<slot name="count"></slot>
 			</span>
-			<span v-show="slotIndex === 1" class="ysyz-badge-dot"></span>
+			<span v-show="slotIndex === 1" class="ysyz-badge-dot" :style="slotStyle"></span>
 			<slot></slot>
 		</div>
 	</div>
@@ -47,7 +48,6 @@ interface Badge {
 	status?: Status,
 	text?: string,
 	offset?: [left: number, right: number], //
-	color?: string, //
 }
 
 const props = withDefaults(defineProps<Badge>(), {
@@ -60,21 +60,30 @@ const props = withDefaults(defineProps<Badge>(), {
 	status: undefined,
 	text: undefined,
 	offset: undefined,
-	color: undefined,
 });
 
 const slots = useSlots();
 
+const statusClassName = ref<string>();
+
+const typeClassName = computed(() => {
+	if (props.type && props.type in Type)
+		return 'ysyz-badge-tip-' + props.type;
+	return '';
+});
+
 const statusShow = computed(() => {
-	if (props.status)
-		return props.status in Status;
+	if (props.status && props.status in Status) {
+		statusClassName.value = 'ysyz-badge-status-' + props.status;
+		return true;
+	}
 	return false;
 });
 
-const pos = computed(() => {
+function getPos() {
 	if (!slots.default)
 		return 'unset';
-});
+}
 
 const slotIndex = ref<number>(0);
 
@@ -90,6 +99,20 @@ const content = computed(() => {
 	}
 	if (!ovf) return '' + cnt;
 	return cnt <= ovf ? '' + cnt : ovf + '+';
+});
+
+const slotStyle = computed(() => {
+	let translateX = 0, translateY = 0;
+	if (props.offset) {
+		translateX = props.offset[0];
+		translateY = props.offset[1];
+	} else return {};
+	let rnt = {
+		transform: `translateX(${translateX}px) translateY(${translateY}px)`
+	}
+	if (slotIndex.value > 1)
+		rnt['position'] = getPos();
+	return rnt;
 });
 
 onMounted(() => {
@@ -114,6 +137,32 @@ onMounted(() => {
 		border-radius: 999em;
 		background-color: $error;
 	}
+
+	.ysyz-badge-tip-primary {
+		background-color: $primary;
+	}
+
+	.ysyz-badge-tip-normal {
+		background-color: $normal-color;
+	}
+
+	.ysyz-badge-tip-success {
+		background-color: $success;
+	}
+
+	.ysyz-badge-tip-warning {
+		background-color: $warning;
+	}
+
+	.ysyz-badge-tip-error {
+		background-color: $error;
+	}
+
+	.ysyz-badge-tip-info {
+		background-color: $info;
+	}
+
+
 
 	.ysyz-badge-dot {
 		height: 8px;
@@ -154,6 +203,18 @@ onMounted(() => {
 
 	.ysyz-badge-status-error {
 		background-color: $error;
+	}
+
+	.ysyz-badge-status-default {
+		background-color: $default;
+	}
+
+	.ysyz-badge-status-processing {
+		background-color: $processing;
+	}
+
+	.ysyz-badge-status-warning {
+		background-color: $warning;
 	}
 }
 </style>
