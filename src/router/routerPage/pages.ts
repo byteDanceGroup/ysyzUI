@@ -67,6 +67,11 @@ export default [
         component: () => import("../../../packages/footerToolbar/doc/doc.md"),
       },
       {
+        path: 'table',
+        name: 'Table',
+        component: () => import("../../../packages/table/doc/doc.md"),
+      },
+      {
         path: "Icon",
         name: "Icon",
         component: () => import("../../../packages/icon/doc/doc.md"),
@@ -87,6 +92,11 @@ export default [
       //   name: "Anchor",
       //   component: () => import("../../../packages/anchor/doc/doc.md"),
       // },
+      {
+        path: "badge",
+        name: "Badge",
+        component: () => import("../../../packages/badge/doc/doc.md"),
+      }
     ],
   },
 ];

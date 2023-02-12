@@ -55,8 +55,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "../../src/style/style.scss";
-
 .ysyz-panel {
 	line-height: 21px;
 
