@@ -74,7 +74,7 @@ export default [
         path: "Cell",
         name: "Cell",
         component: () => import('../../../packages/cell/doc/doc.md')
-
+      },{
         path: 'collapse',
         name: 'Collapse',
         component: () => import("../../../packages/collapse/doc/doc.md"),
