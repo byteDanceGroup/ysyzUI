@@ -1,8 +1,8 @@
 <template>
   <div>
-    <ysyz-list border>
+    <ysyz-list border :split="false">
         <template #header>
-            这里是header
+            1
         </template>
       <ysyz-listItem>这里是header这里是header这里是header这里是header这里是header这里是header这里是header这里是header这里是header</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
@@ -13,12 +13,20 @@
         </template>
     </ysyz-list>
     <ysyz-list border size="small">
-      <ysyz-listItem>怎么会重复</ysyz-listItem>
+      <template #header>
+            <ysyz-icon type="success"></ysyz-icon>
+            这里是小List
+        </template>
+      <ysyz-listItem>1</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
       <ysyz-listItem>12</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
     </ysyz-list>
     <ysyz-list border size="large">
+      <template #header>
+            <ysyz-icon type="success"></ysyz-icon>
+            这里是大List
+        </template>
       <ysyz-listItem>1</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>
       <ysyz-listItem>1</ysyz-listItem>

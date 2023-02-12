@@ -12,7 +12,7 @@ import preview from '../../../src/components/preview.vue'
 }
 </style>
 
-# Grid宫格
+# Grid 宫格
 
 ## 概述
 
