@@ -98,13 +98,19 @@ const openList = () => {
 const closeListHorizontal = () => {
   if (!listShow.value) return;
   listStyle.value = `height:0px;opacity:0;`;
+  setTimeout(() => {
+    listStyle.value = `height:0px;opacity:0;display:none;`;
+  }, 250);
   listShow.value = false;
 };
 
 const openListHorizontal = () => {
   if (listShow.value) return;
   rootNode.exposed.clickAllSubmenuHandle(props.name);
-  listStyle.value = `height:${height + 10}px;opacity:1;`;
+  listStyle.value = `height:0px;opacity:0;`;
+  setTimeout(() => {
+    listStyle.value = `height:${height + 10}px;opacity:1`;
+  }, 0);
   listShow.value = true;
 };
 

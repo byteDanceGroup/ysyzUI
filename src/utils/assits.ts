@@ -13,7 +13,11 @@ export function findComponentsUpward(context: any, componentNames: string[]) {
 export function findComponentUpward(context: any, componentNames: string[]) {
   const parent = context.parent;
   if (parent) {
-    if (componentNames.indexOf(parent.type.name) !== -1) return parent;
+    if (
+      componentNames.indexOf(parent.type.name) !== -1 ||
+      componentNames.indexOf(parent.type.__name) !== -1
+    )
+      return parent;
     return findComponentUpward(parent, componentNames);
   } else {
     return null;

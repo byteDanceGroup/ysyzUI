@@ -56,10 +56,15 @@ export default [
         component: () => import("../../../packages/GlobalFooter/doc/doc.md"),
       },
       {
-        path: 'collapse',
-        name: 'Collapse',
+        path: "collapse",
+        name: "Collapse",
         component: () => import("../../../packages/collapse/doc/doc.md"),
-      }
+      },
+      {
+        path: "datePicker",
+        name: "DatePicker",
+        component: () => import("../../../packages/datePicker/doc/doc.md"),
+      },
     ],
   },
 ];
