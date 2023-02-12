@@ -10,6 +10,7 @@
     <div class="mid">
       <div class="router-view">
         <router-view></router-view>
+        <ysyz-globalfooter :links="links" :copyright="copyright"></ysyz-globalfooter>
       </div>
     </div>
 
@@ -21,6 +22,27 @@
 import { useRoute } from "vue-router";
 import menuList from "../router/routerPage/pages";
 const route = useRoute();
+const links = [
+        {
+            key: '帮助',
+            title: '帮助',
+            href: '#',
+            blankTarget: true
+        },
+        {
+            key: 'github',
+            icon: 'logo-github',
+            href: '#',
+            blankTarget: true
+        },
+        {
+            key: '条款',
+            title: '条款',
+            href: '',
+            blankTarget: true
+        }
+    ]
+    const copyright= 'Copyright © 2023 YouShiYouZhong9960 All Rights Reserved'
 </script>
 
 <style lang="scss" scoped>
@@ -55,7 +77,6 @@ const route = useRoute();
     height: auto;
     overflow-y: auto;
     padding-left: 40px;
-    padding-bottom: 40px;
     box-sizing: border-box;
   }
 

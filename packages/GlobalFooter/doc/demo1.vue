@@ -1,4 +1,4 @@
-<template>
+<template> 
     <ysyz-globalfooter :links="links" :copyright="copyright"></ysyz-globalfooter>
 </template>
 
@@ -27,5 +27,5 @@
 </script>
 
 <style scoped lang="scss">
-
+    
 </style>
