@@ -1,9 +1,6 @@
 <template>
 	<ysyz-badge count="10" />
 	<ysyz-badge count="20" class-name="demo-badge-alone" />
-	<ysyz-badge>
-		<template #count>hhh</template>
-	</ysyz-badge>
 </template>
 
 <script>

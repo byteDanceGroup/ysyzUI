@@ -69,7 +69,7 @@ import demo8 from './demo8.vue';
 <demo4/>
 
 独立使用及自定义样式：<br/>
-可以没有 `slot` 独立展示。（此处的 `slot` 特指 `#default`而非 `#count` )
+可以没有 `slot` 独立展示。
 
 <preview comp-name='badge' demo-name='demo4'/>
 
