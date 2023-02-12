@@ -1,59 +1,55 @@
 <template>
   <div>
     <h5>percentage百分比，status三种自带颜色，默认normal</h5>
-    <h4><my-progress1 :percentage="30"></my-progress1></h4>
-    <h4><my-progress1 :percentage="40" status="normal"></my-progress1></h4>
-    <h4><my-progress1 :percentage="50" status="success"></my-progress1></h4>
-    <h4><my-progress1 :percentage="60" status="fail"></my-progress1></h4>
+    <h4><ysyz-progress :percentage="30"></ysyz-progress></h4>
+    <h4><ysyz-progress :percentage="40" status="normal"></ysyz-progress></h4>
+    <h4><ysyz-progress :percentage="50" status="success"></ysyz-progress></h4>
+    <h4><ysyz-progress :percentage="60" status="fail"></ysyz-progress></h4>
     <br>
     <h5>自定义颜色（字符串）</h5>
-    <h4><my-progress1 color="pink" :percentage="70"></my-progress1></h4>
+    <h4><ysyz-progress color="pink" :percentage="70"></ysyz-progress></h4>
     <br>
     <h5>自定义颜色（函数，可根据百分比设置不同的颜色）</h5>
-    <h4><my-progress1 :color="colorFn" :percentage="60"></my-progress1></h4>
-    <h4><my-progress1 :color="colorFn" :percentage="50"></my-progress1></h4>
+    <h4><ysyz-progress :color="colorFn" :percentage="60"></ysyz-progress></h4>
+    <h4><ysyz-progress :color="colorFn" :percentage="50"></ysyz-progress></h4>
     <br>
     <h5>进度条右侧文本区域插槽</h5>
     <h4>
-      <my-progress1 :percentage="40">
+      <ysyz-progress :percentage="40">
         <span slot="text">₍ᐢ..ᐢ₎</span>
-      </my-progress1>
+      </ysyz-progress>
     </h4>
     <h4>
-      <my-progress1 :percentage="100">
+      <ysyz-progress :percentage="100">
         <span slot="text">满</span>
-      </my-progress1>
+      </ysyz-progress>
     </h4>
     <br />
     <h5>隐藏右侧文本区域插槽</h5>
     <h4>
-      <my-progress1 :percentage="100" :showText="false"></my-progress1>
+      <ysyz-progress :percentage="100" :showText="false"></ysyz-progress>
     </h4>
     <br>
     <h5>百分比增加减少，需要控制一下增加和减少的边界值0和100</h5>
     <h4>
-      <my-progress1 :percentage="percentage" :color="diffColor"></my-progress1>
+      <ysyz-progress :percentage="percentage" :color="diffColor"></ysyz-progress>
       <button @click="add">增加</button>
       <button @click="subtra">减少</button>
     </h4>
     <br />
     <h5>开启动画，默认动画关闭的</h5>
-    <h4><my-progress1 :percentage="70" showDongHua></my-progress1></h4>
+    <h4><ysyz-progress :percentage="70" showDongHua></ysyz-progress></h4>
   </div>
 
 
 </template>
 <script>
-import myProgress1 from '../index.vue'
 export default {
   name: "myProgress1Name",
   data() {
     return {
       percentage: 15,
     };
-  },
-  components: {
-    myProgress1
   },
   methods: {
     colorFn(val) {

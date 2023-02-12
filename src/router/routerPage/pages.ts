@@ -56,6 +56,24 @@ export default [
         component: () => import("../../../packages/GlobalFooter/doc/doc.md"),
       },
       {
+        path: "Divider",
+        name: "Divider",
+        component: () => import("../../../packages/divider/doc/doc.md")
+      },
+      {
+        path: "Tabs",
+        name: "Tabs",
+        component: () => import("../../../packages/tab/doc/doc.md")
+      },
+      {
+        path: "Progress",
+        name: "Progress",
+        component: () => import('../../../packages/progress/doc/doc.md')
+      },
+      {
+        path: "Cell",
+        name: "Cell",
+        component: () => import('../../../packages/cell/doc/doc.md')
 
         path: 'collapse',
         name: 'Collapse',

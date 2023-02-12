@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
 export default {
-  name: "myCell",
+  name: "ysyz-cell",
 };
 </script>
 <script setup lang="ts">
@@ -65,7 +65,7 @@ const itemClass = computed(() => {
   }
   if(props.disabled) {
     return [
-        props.disabled ? "isForbiddenItem" : ""
+      "isForbiddenItem"
     ]
   } else {
     return [
@@ -80,7 +80,6 @@ const toAuto = inject("toAuto");
 const replaceAuto = inject("replaceAuto");
 const router = useRouter();
 const activeHandle = () => {
-  console.log('acriveHandle')
   active.value = true;
   if (props.to) {
     if (props.replace) router.replace(props.to);
@@ -103,11 +102,6 @@ let instance = getCurrentInstance();
 let menuNode = null;
 let outNode = null;
 const clickItem = () => {
-  // if (mode === "vertical") menuNode.exposed?.clickItemHandle(props.name);
-  // else {
-  //   outNode.exposed.ChildrenActiveHandleHorizontal(props.name, props.name);
-  //   activeHandle();
-  // }
   activeHandle()
 };
 const activeHandleHorizontal = () => {
@@ -128,15 +122,10 @@ defineExpose({
   clickItem,
 });
 onMounted(() => {
-  // let menuList = findComponentsUpward(instance, ["ysyz-menu", "ysyz-submenu"]);
-  // padding.value *= menuList.length;
-  // outNode = menuList[0];
-  // menuNode = menuList.pop();
-  // menuNode.exposed?.addItemList(instance);
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .isForbiddenItem {
     cursor: not-allowed;

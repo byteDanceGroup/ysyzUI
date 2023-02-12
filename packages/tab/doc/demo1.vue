@@ -1,27 +1,21 @@
 <template>
     <div>
-      <my-tabs v-model="activeName" @tabClick="tabClick">
-        <my-tab-content label="孙悟空" name="sunwukong">孙悟空内容</my-tab-content>
-        <my-tab-content label="猪八戒" name="zhubajie">猪八戒内容</my-tab-content>
-        <my-tab-content label="沙和尚" name="shaheshang">沙和尚内容</my-tab-content>
-        <my-tab-content label="唐僧" name="tangseng">唐僧内容</my-tab-content>
-        <my-tab-content label="白龙马" name="bailongma">白龙马内容</my-tab-content>
-      </my-tabs>
+      <ysyz-tabs v-model="activeName" @tabClick="tabClick">
+        <ysyz-tab-content label="孙悟空" name="sunwukong">孙悟空内容</ysyz-tab-content>
+        <ysyz-tab-content label="猪八戒" name="zhubajie">猪八戒内容</ysyz-tab-content>
+        <ysyz-tab-content label="沙和尚" name="shaheshang">沙和尚内容</ysyz-tab-content>
+        <ysyz-tab-content label="唐僧" name="tangseng">唐僧内容</ysyz-tab-content>
+        <ysyz-tab-content label="白龙马" name="bailongma">白龙马内容</ysyz-tab-content>
+      </ysyz-tabs>
     </div>
 </template>
 
 <script lang="js">
-import myTabContent from '../myTabContent.vue';
-import myTabs from '../tabs.vue';
 export default {
   data() {
     return {
       activeName: "sunwukong",
     };
-  },
-  components: {
-    myTabs,
-    myTabContent
   },
   methods: {
     tabClick(tabItem) {
