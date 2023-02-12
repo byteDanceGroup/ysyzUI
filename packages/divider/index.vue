@@ -71,15 +71,15 @@ const props = defineProps({
 }
 // solid 分割线
 .solid {
-  border-bottom: 1px solid black !important;
+  border-bottom: 1px solid $border-color-split !important;
 }
 // dashed分割线
 .dashed {
-  border-bottom: 1px dashed #333;
+  border-bottom: 1px dashed $border-color-split;
 }
 // dotted分割线
 .dotted {
-  border-bottom: 1px dotted #333;
+  border-bottom: 1px dotted $border-color-split;
 }
 // 垂直样式
 .vertical {
