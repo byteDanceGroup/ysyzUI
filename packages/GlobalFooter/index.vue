@@ -45,9 +45,10 @@ const props = defineProps({
 <style scoped lang="scss">
 $prefix:ysyz-global-footer;
 .#{$prefix}{
-    margin: 48px 0 24px 0;
-    padding: 0 16px;
+    margin: 16px 0 16px 0;
+    padding: 10px 16px;
     text-align: center;
+    border-top: 1px solid #e8eaec;
     &-links{
         margin-bottom: 8px;
         a {

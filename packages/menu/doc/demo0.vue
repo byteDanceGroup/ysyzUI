@@ -28,7 +28,7 @@
     可进入手风琴模式，此时同级子菜单最多展开一个。（展开上方两个案例感受区别）
     <br />垂直状态仍然可以通过参数 <span>width</span> 设定宽度。
     <br />
-    <h3>API</h3>
+    <h3>API <a href="#/menu#basic_usage">1</a></h3>
 
     <h4>menu props参数介绍</h4>
 
