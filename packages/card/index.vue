@@ -1,7 +1,13 @@
 <template>
   <div :class="classes">
     <div class="cardHead" v-if="showHead">
-      <div class="1" :class="`${prefix}-head`" v-if="showHead">1</div>
+      <div class="2" :class="`${prefix}-head`" v-if="showHead">
+        <slot name="title">
+        <p v-if="title">
+        <ysyz-icon v-if="icon" :type="icon"></ysyz-icon>
+        <span>{{ title }}</span>
+        </p></slot>
+      </div>
       <div :class="`${prefix}-extra`" v-if="showExtra">
         <slot name="extra"></slot>
       </div>
@@ -61,7 +67,7 @@ const classes = computed(() => {
 const bodyClasses = () => {
   return `${prefix}-body`;
 };
-const bodyStyles = () => {
+const bodyStyles = computed(() => {
   if (props.padding !== defaultPadding) {
     return {
       padding: `${props.padding}px`,
@@ -69,7 +75,7 @@ const bodyStyles = () => {
   } else {
     return "";
   }
-};
+});
 onMounted(() => {
   showHead.value = props.title || useSlots().title !== undefined;
   showExtra.value = useSlots().extra !== undefined;
@@ -84,8 +90,6 @@ onMounted(() => {
   border-radius: 4px;
   font-size: 14px;
   position: relative;
-  width: 80%;
-  height: 200px;
   transition: all 0.2s ease-in-out;
   &:hover {
     box-shadow: 0 1px 6px rgb(0 0 0 / 20%);

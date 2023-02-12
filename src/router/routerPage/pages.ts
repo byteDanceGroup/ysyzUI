@@ -56,6 +56,7 @@ export default [
         component: () => import("../../../packages/GlobalFooter/doc/doc.md"),
       },
       {
+
         path: 'collapse',
         name: 'Collapse',
         component: () => import("../../../packages/collapse/doc/doc.md"),
@@ -64,6 +65,37 @@ export default [
         path: 'footertoolbar',
         name: 'FooterToolbar',
         component: () => import("../../../packages/footerToolbar/doc/doc.md"),
+      },
+      {
+        path: 'table',
+        name: 'Table',
+        component: () => import("../../../packages/table/doc/doc.md"),
+      },
+      {
+        path: "Icon",
+        name: "Icon",
+        component: () => import("../../../packages/icon/doc/doc.md"),
+      },
+      {
+        path: "Switch",
+        name: "Switch",
+        component: () => import("../../../packages/switch/doc/doc.md"),
+      },
+      {
+        path: "Layout",
+        name: "Layout",
+        component: () => import("../../../packages/layout/doc/doc.md"),
+      },
+      // 未完成
+      // {
+      //   path: "Anchor",
+      //   name: "Anchor",
+      //   component: () => import("../../../packages/anchor/doc/doc.md"),
+      // },
+      {
+        path: "badge",
+        name: "Badge",
+        component: () => import("../../../packages/badge/doc/doc.md"),
       }
     ],
   },
