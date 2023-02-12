@@ -8,7 +8,7 @@
 import { computed, onMounted } from "@vue/runtime-core";
 import { getCurrentInstance } from 'vue'
   export default {
-    name: "myTabContent",
+    name: "ysyz-tab-content",
   };
 </script>
 

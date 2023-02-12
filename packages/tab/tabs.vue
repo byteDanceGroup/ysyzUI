@@ -9,7 +9,7 @@
 <script lang="ts">
 import tabNav from "./tabNav.vue"; // 引入tab导航页组件
 export default {
-  name: "myTabs",
+  name: "ysyz-tabs",
   components: { tabNav }, // 注册之
   props: {
     // 父组件用v-model传参，子组件须用value接参，方可接到v-model="activeName"绑定的activeName的值
