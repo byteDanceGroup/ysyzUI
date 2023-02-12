@@ -90,8 +90,6 @@ onMounted(() => {
   border-radius: 4px;
   font-size: 14px;
   position: relative;
-  width: 80%;
-  height: 200px;
   transition: all 0.2s ease-in-out;
   &:hover {
     box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
