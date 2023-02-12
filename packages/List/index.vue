@@ -118,12 +118,22 @@ ul{
         padding-top: 8px;
         padding-bottom: 8px;
     }
-    
+    &-item-no-flex {
+        display: block;
+    }
+
+    &:not(.#{$prefix}-vertical) {
+      .#{$prefix}-item-no-flex {
+        .#{$prefix}-item-action {
+                float: right;
+            }
+        }
+    }
 }
 .#{$prefix}-border{
   
-    border:1px solid  #dcdee2;
-    border-radius: 6px;
+    border:1px solid  $border-color-base;
+    border-radius: $border-radius-base;
     .#{$prefix}-header{
       padding-right: 24px;
       padding-left: 24px;
@@ -136,7 +146,6 @@ ul{
     .#{$prefix}-item {
         padding-right: 24px;
         padding-left: 24px;
-        border-bottom: 1px solid #e8eaec;
     }
     &.#{$prefix}-small {
         .#{$prefix}-item {

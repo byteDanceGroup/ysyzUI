@@ -155,7 +155,8 @@
             v-if="
               props.time &&
               ((props.type === 'date' && !props.multiple) ||
-                props.type === 'daterange')
+                props.type === 'daterange') &&
+              !props.multiple
             "
             :disabled="
               (props.type === 'date' && !props.modelValue.length) ||
@@ -171,10 +172,18 @@
               if (props.type === 'date' || props.type === 'daterange')
                 clearDate();
               else clearYear();
+              emits('on-clear');
             "
             >清空</ysyz-button
           >
-          <ysyz-button type="primary" @click="closePicker">确认</ysyz-button>
+          <ysyz-button
+            type="primary"
+            @click="
+              emits('on-ok');
+              closePicker();
+            "
+            >确认</ysyz-button
+          >
         </div>
       </div>
     </div>
@@ -186,14 +195,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import {
-  provide,
-  ref,
-  onMounted,
-  nextTick,
-  getCurrentInstance,
-  computed,
-} from "vue";
+import { ref, onMounted, nextTick, computed } from "vue";
 import DatePickerDayBlock from "./DatePickerDayBlock.vue";
 import DatePickerYearMonthBlock from "./DatePickerYearMonthBlock.vue";
 const props = defineProps({
@@ -234,6 +236,14 @@ const props = defineProps({
 const cloneDate = function (value: Date) {
   return new Date(value.valueOf());
 };
+//////////事件/////////
+const emits = defineEmits([
+  "on-change",
+  "on-open",
+  "on-close",
+  "on-ok",
+  "on-clear",
+]);
 //////////数据////////
 const todayDate = ref(new Date());
 todayDate.value.setHours(0, 0, 0, 0);
@@ -266,6 +276,7 @@ const input = ref(null);
 //展开收拢控制
 const pickerVisible = ref(false);
 const openPicker = () => {
+  emits("on-open");
   pickerVisible.value = true;
   boxStyle.value = "opacity:0";
   setTimeout(() => {
@@ -288,6 +299,7 @@ const _stopPropagation = (event: any) => {
   event.stopPropagation();
 };
 const closePicker = () => {
+  emits("on-close");
   boxStyle.value = "opacity:0";
   setTimeout(() => {
     boxStyle.value = "opacity:0;display:none;";
@@ -598,6 +610,7 @@ const headSwitchHandle = (type: number) => {
 };
 //顶层选择控制
 const childrenClickTopHandle = (index, preState, multiIndex) => {
+  emits("on-change");
   if (!preState["isSelected"]) {
     //选择
     switch (props.type) {
@@ -684,6 +697,7 @@ const clearDate = () => {
 //////////////年/月选择器//////////////
 const yearMonthBlock = ref(null);
 const childrenClickYearMonthHandle = (index, preState) => {
+  emits("on-change");
   let date = cloneDate(currentMonth0.value);
   switch (props.type) {
     case "year":
@@ -763,9 +777,11 @@ onMounted(() => {
 
 <style lang="scss">
 .ysyz-datePicker {
-  z-index: 1000;
   position: relative;
+  display: inline-block;
   &-box {
+    background-color: white;
+    z-index: 100;
     transition: all 0.2s;
     position: absolute;
     border-radius: 5px;
@@ -776,7 +792,7 @@ onMounted(() => {
       width: 95%;
       height: 80%;
       position: absolute;
-      z-index: 1001;
+      z-index: 101;
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-between;
@@ -877,7 +893,7 @@ onMounted(() => {
                 background-color: $primary;
                 width: 5px;
                 height: 5px;
-                right: 5px;
+                right: 3px;
                 top: 2px;
                 border-radius: 50%;
               }
@@ -922,7 +938,7 @@ onMounted(() => {
           width: 210px;
           padding: 5px;
           .ysyz-datePickerPage-yearButton {
-            padding: 10px;
+            padding: 10px 5px;
             margin: 2px;
             text-align: center;
             display: block;

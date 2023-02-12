@@ -44,7 +44,7 @@ const isActive = computed(() => {
 		if (height.value !== 'auto') return false;
 		// 不在激活列表中，但高度不为0，则需要更新高度
 		height.value = (panelContent.value.scrollHeight - 32) + 'px';
-		setTimeout(() => { height.value = '0px' }, 50);
+		setTimeout(() => { height.value = '0px' }, 10);
 	}
 	return list.includes(props.name);
 });
@@ -55,8 +55,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "../../src/style/style.scss";
-
 .ysyz-panel {
 	line-height: 21px;
 
@@ -65,7 +63,7 @@ onMounted(() => {
 		line-height: 38px;
 		padding-left: $padding-md;
 		position: relative;
-		border-bottom: $border-width-base $border-style-base $border-color-base ;
+		border-bottom: $border-width-base $border-style-base $border-color-base;
 		cursor: pointer;
 
 		.ysyz-collapse-header-icon {

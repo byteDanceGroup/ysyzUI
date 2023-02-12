@@ -12,7 +12,6 @@
     <ysyz-button color="rgb(130,124,217)" :whiteMode="true"
       >自定义-白模式</ysyz-button
     >
-    <ysyz-button color="#ff66">错误的颜色</ysyz-button>
   </div>
 </template>
 

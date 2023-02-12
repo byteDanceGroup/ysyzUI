@@ -8,9 +8,11 @@
 
 <style lang="scss">
 html,
-body {
+body,a,ul,li {
   margin: 0;
   padding: 0;
+  list-style:none;
+  
 }
 .container {
   width: 400px;

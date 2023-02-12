@@ -1,9 +1,5 @@
 <script setup lang="ts">
 
-import demo1 from './demo1.vue'
-import preview from '../../../src/components/preview.vue'
+import demo0 from './demo0.vue'
 </script>
-
-### Button 组件代码示例
-
-<demo1/>
+<demo0/>

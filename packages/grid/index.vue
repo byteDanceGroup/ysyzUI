@@ -36,8 +36,6 @@ provide('GridInstance', props);
 </script>
 
 <style lang="scss">
-@import "../../src/style/style.scss";
-
 .ysyz-grid {
 	display: grid;
 	margin: 0 auto;
