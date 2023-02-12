@@ -4,7 +4,6 @@
       <div :class="['progressBarBg', status]" :style="barStyle"></div>
     </div>
     <div class="progressText" v-if="showText">
-      <!-- 没传递text插槽就显示百分比，反之显示插槽 -->
       <span v-if="!$slots.text">{{ percentage }}%</span>
       <slot v-else name="text"></slot>
     </div>
@@ -12,10 +11,11 @@
 </template>
 
 <script>
+
 // 自带三种状态颜色，默认normal
 const statusArr = ["success", "fail", "normal"];
 export default {
-  name: "myProgress1",
+  name: "ysyz-progress",
   props: {
     percentage: {
       type: Number,
@@ -91,6 +91,10 @@ export default {
   },
 };
 </script>
+
+
+ 
+
 <style ref='xxx' lang='less' scoped>
 .myProgressWrap {
   width: 100%;

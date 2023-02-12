@@ -14,6 +14,12 @@ import Page from "./page/index";
 import GlobalFooter from "./GlobalFooter/index";
 import Grid from "./grid/index";
 import GridItem from "./gridItem/index";
+import Progress from './progress/index';
+import Divider from './divider/index';
+import Tabs from './tab/index';
+import TabContent from './tab/index-c';
+import Cell from './cell/index'
+import CellGroup from './cellGroup/index'
 const install = (app: { use: (arg0: any) => void }) => {
   app.use(Button);
   app.use(DescriptionList);
@@ -31,6 +37,12 @@ const install = (app: { use: (arg0: any) => void }) => {
   app.use(GlobalFooter);
   app.use(Grid);
   app.use(GridItem);
+  app.use(Progress);
+  app.use(Divider);
+  app.use(Tabs);
+  app.use(TabContent);
+  app.use(Cell)
+  app.use(CellGroup)
 };
 const QUI = {
   install,
@@ -50,4 +62,10 @@ export { ListItem };
 export { Page };
 export { Grid };
 export { GridItem };
+export {Progress};
+export {Divider};
+export {TabContent};
+export {Tabs};
+export {Cell};
+export {CellGroup}
 export default QUI;

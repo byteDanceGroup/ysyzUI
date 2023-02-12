@@ -1,23 +1,18 @@
 <template>
 <ysyz-card>
-  <my-cell-group>
-    <my-cell to="button">1</my-cell>
-    <my-cell disabled>2</my-cell>
-    <my-cell selected>3</my-cell>
-  </my-cell-group>
+  <ysyz-cell-group>
+    <ysyz-cell to="button">点击跳转到Button</ysyz-cell>
+    <ysyz-cell disabled>该项禁用</ysyz-cell>
+    <ysyz-cell selected>选中项目</ysyz-cell>
+  </ysyz-cell-group>
 </ysyz-card>
 </template>
 
 <script>
-import myCellGroup from '../../cellGroup/index.vue'
-import myCell from '../index.vue'
+
 
 export default {
     name: "demo",
-    components: {
-        myCell,
-        myCellGroup
-    }
 }
 </script>
 
