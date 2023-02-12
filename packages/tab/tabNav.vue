@@ -51,7 +51,7 @@
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .my-tab-nav-item-box {
   width: 100%;
   border-bottom: 1px solid #e9e9e9;

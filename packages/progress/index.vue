@@ -95,7 +95,7 @@ export default {
 
  
 
-<style ref='xxx' lang='less' scoped>
+<style ref='xxx' lang='scss' scoped>
 .myProgressWrap {
   width: 100%;
   display: flex;

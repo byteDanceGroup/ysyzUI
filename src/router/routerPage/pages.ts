@@ -74,7 +74,7 @@ export default [
         path: "Cell",
         name: "Cell",
         component: () => import('../../../packages/cell/doc/doc.md')
-
+      },{
         path: 'collapse',
         name: 'Collapse',
         component: () => import("../../../packages/collapse/doc/doc.md"),
@@ -114,7 +114,17 @@ export default [
         path: "badge",
         name: "Badge",
         component: () => import("../../../packages/badge/doc/doc.md"),
-      }
+      },
+      {
+        path: "Row",
+        name: "Row",
+        component: () => import("../../../packages/rowAcol/doc/doc.md"),
+      },
+      {
+        path: "Breadcrumb",
+        name: "Breadcrumb",
+        component: () => import("../../../packages/breadcrumb/doc/doc.md"),
+      },
     ],
   },
 ];
