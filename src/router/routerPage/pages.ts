@@ -96,7 +96,17 @@ export default [
         path: "badge",
         name: "Badge",
         component: () => import("../../../packages/badge/doc/doc.md"),
-      }
+      },
+      {
+        path: "Row",
+        name: "Row",
+        component: () => import("../../../packages/rowAcol/doc/doc.md"),
+      },
+      {
+        path: "Breadcrumb",
+        name: "Breadcrumb",
+        component: () => import("../../../packages/breadcrumb/doc/doc.md"),
+      },
     ],
   },
 ];

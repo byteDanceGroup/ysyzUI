@@ -28,8 +28,17 @@ import Table from './table/index';
 import Icon from './icon/index';
 import Switch from './switch/index';
 import Badge from './badge/index';
-
+import Row from './row/index'
+import Col from './col/index'
+import RowACol from './rowAcol/index'
+import Breadcrumb from './breadcrumb/index'
+import BreadcrumbItem from './breadcrumbItem/index'
 const install = (app: { use: (arg0: any) => void }) => {
+  app.use(Breadcrumb)
+  app.use(BreadcrumbItem)
+  app.use(Row)
+  app.use(RowACol)
+  app.use(Col)
   app.use(Button);
   app.use(Layout)
   app.use(AnchorLink)
@@ -65,7 +74,7 @@ const QUI = {
   install,
 };
 export { Button, GlobalFooter ,Icon,Switch,Anchor,AnchorLink,Layout};
-export { DescriptionList ,Sider,Header,Footer,Content};
+export { DescriptionList ,Sider,Header,Footer,Content,Row,Col,RowACol,Breadcrumb,BreadcrumbItem};
 export { Description };
 export { PageHeader };
 export { LoadingBar };
