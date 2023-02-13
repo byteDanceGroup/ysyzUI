@@ -83,7 +83,6 @@ ul{
 }
 .#{$prefix}{
     position: relative;
-    width: 400px;
     
     
     &-header{
