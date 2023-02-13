@@ -5,49 +5,72 @@
   <h2>代码示例</h2>
   <ysyz-card dis-hover>
     <demo1></demo1>
-
-    <ysyz-divider content-position="left">按钮类型</ysyz-divider>
+    <ysyz-divider content-position="left">基本用法</ysyz-divider>
     <p>
-      按钮类型有：默认按钮、主按钮、虚线按钮、文字按钮以及四种颜色按钮。
+        自定义标题、额外操作和主体内容，可以完全自由控制各个部分，也可以结合其它组件一起使用，较为灵活。
       <br />
-      通过设置type为primary、dashed、text、info、success、warning
-      创建不同样式的按钮，不设置则为默认样式。
+      可以通过设置属性 title 和 icon 快速设置标题栏。
       <br />
-      指定color即可自定义按钮颜色，
-      组件将自动计算悬浮颜色。指定color且将whiteMode设置为true即可切换按钮风格为白底，
-      悬浮式显示指定的颜色。
-      <br />
-      设置颜色无效时，将显示为默认按钮。
     </p>
     <ysyz-divider lineType="dashed"></ysyz-divider>
-    <preview comp-name="button" demo-name="demo1" />
+    <preview comp-name="card" demo-name="demo1" />
   </ysyz-card>
-
   <ysyz-card dis-hover>
     <demo2></demo2>
-    <ysyz-divider content-position="left">幽灵按钮</ysyz-divider>
-    <p>幽灵按钮将其他按钮的内容反色，背景变为透明，常用在有色背景上。</p>
+    <ysyz-divider content-position="left">无边框</ysyz-divider>
+    <p>
+        通过设置属性bordered为 false ，可以不添加边框，建议在灰色背景下使用。
+     
+    </p>
     <ysyz-divider lineType="dashed"></ysyz-divider>
-    <preview comp-name="button" demo-name="demo2" />
+    <preview comp-name="card" demo-name="demo2" />
+  </ysyz-card>
+  <ysyz-card dis-hover>
+    <demo3></demo3>
+    <ysyz-divider content-position="left">禁用悬停阴影</ysyz-divider>
+    <p>
+        通过设置属性dis-hover来禁用鼠标悬停显示阴影的效果。
+     
+    </p>
+    <ysyz-divider lineType="dashed"></ysyz-divider>
+    <preview comp-name="card" demo-name="demo3" />
   </ysyz-card>
 
   <ysyz-card dis-hover>
-    <demo3></demo3>
-    <ysyz-divider content-position="left">不可选状态</ysyz-divider>
-    <p>将按钮的disabled设置为true即可禁用按钮，此时将不会触发点击事件。</p>
+    <demo4></demo4>
+    <ysyz-divider content-position="left">卡片阴影</ysyz-divider>
+    <p>
+        通过设置属性shadow来显示卡片阴影，使用该属性后，bordered和dis-hover将无效，建议在灰色背景下使用。
+     
+    </p>
     <ysyz-divider lineType="dashed"></ysyz-divider>
-    <preview comp-name="button" demo-name="demo3" />
+    <preview comp-name="card" demo-name="demo4" />
   </ysyz-card>
 
+  <ysyz-card dis-hover>
+    <demo5></demo5>
+    <ysyz-divider content-position="left">简介卡片</ysyz-divider>
+    <p>
+        只包含内容区域，没有标题。
+    </p>
+    <ysyz-divider lineType="dashed"></ysyz-divider>
+    <preview comp-name="card" demo-name="demo5" />
+  </ysyz-card>
 
- 
+  <h2>API</h2>
+    <h3>Card Props</h3>
+    <ysyz-table :columns="props" :data="cardData"></ysyz-table>
     
+    <h3>Card Slots</h3>
+    <ysyz-table :columns="slots" :data="cardSlots"></ysyz-table>
 </template>
 
 <script setup lang="ts">
-import demo1 from "./demo1.vue";
-import demo2 from "./demo2.vue";
-import demo3 from "./demo3.vue";
+import demo1 from './demo1.vue';
+import demo2 from './demo2.vue';
+import demo3 from './demo3.vue';
+import demo4 from './demo4.vue';
+import demo5 from './demo5.vue';
 import preview from "../../../src/components/preview.vue";
 
 const props = [
@@ -138,9 +161,6 @@ const cardSlots = [
 </script>
 
 <style scoped lang="scss">
-.container {
-  padding: 10px 0 10px 10px;
-}
 .ysyz-card {
   margin-bottom: 30px;
 }

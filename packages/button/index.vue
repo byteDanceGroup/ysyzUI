@@ -1,5 +1,5 @@
 <template>
-  <button class="q-button" :class="qClass">
+  <button class="q-button" :class="qClass" :disabled="props.disabled">
     <span><slot></slot></span>
   </button>
 </template>
