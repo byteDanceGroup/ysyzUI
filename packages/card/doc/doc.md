@@ -1,9 +1,7 @@
 <script setup lang="ts">
 
-import demo1 from './demo1.vue'
-import preview from '../../../src/components/preview.vue'
+import doc from './doc.vue'
 </script>
 
-### 123
 
-<demo1/>
+<doc/>
