@@ -1,5 +1,5 @@
 <template>
-	<ysyz-table :columns="columns" :data="data"></ysyz-table>
+	<ysyz-table size="small" :columns="columns" :data="data"></ysyz-table>
 </template>
 
 <script lang="ts" setup>
