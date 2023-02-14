@@ -3,11 +3,11 @@
 	<ysyz-badge count="20" class-name="demo-badge-alone" />
 </template>
 
-<script>
+<script setup>
 
 </script>
 
-<style>
+<style scoped>
 .demo-badge-alone {
 	background: #5cb85c !important;
 }

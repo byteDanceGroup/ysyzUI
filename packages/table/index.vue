@@ -7,8 +7,8 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
-const ysyzThead = defineAsyncComponent(() => import('../thead/index.vue'));
-const ysyzTbody = defineAsyncComponent(() => import('../tbody/index.vue'));
+const ysyzThead = defineAsyncComponent(() => import('./thead/index.vue'));
+const ysyzTbody = defineAsyncComponent(() => import('./tbody/index.vue'));
 interface Table {
 	data: Record<string | number, any>[],
 	columns: { title: string, key: string | number }[],
