@@ -1,13 +1,13 @@
 <template>
-	<ysyz-badge text="new">
+	<ysyz-badge dot>
 		<a href="javascript:;" class="demo-badge"></a>
 	</ysyz-badge>
-	<ysyz-badge text="hot">
-		<a href="javascript:;" class="demo-badge"></a>
+	<ysyz-badge dot>
+		<a href="javascript:;">可以是个链接</a>
 	</ysyz-badge>
 </template>
 
-<script>
+<script setup>
 
 </script>
 

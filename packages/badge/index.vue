@@ -43,11 +43,11 @@ interface Badge {
 	overflowCount?: number | string,
 	dot?: boolean,
 	className?: string,
-	type?: Type, //
+	type?: Type,
 	showZero?: boolean,
 	status?: Status,
 	text?: string,
-	offset?: [left: number, right: number], //
+	offset?: [left: number, right: number],
 }
 
 const props = withDefaults(defineProps<Badge>(), {
@@ -80,11 +80,6 @@ const statusShow = computed(() => {
 	return false;
 });
 
-function getPos() {
-	if (!slots.default)
-		return 'unset';
-}
-
 const slotIndex = ref<number>(0);
 
 const content = computed(() => {
@@ -106,12 +101,12 @@ const slotStyle = computed(() => {
 	if (props.offset) {
 		translateX = props.offset[0];
 		translateY = props.offset[1];
-	} else return {};
-	let rnt = {
-		transform: `translateX(${translateX}px) translateY(${translateY}px)`
 	}
-	if (slotIndex.value > 1)
-		rnt['position'] = getPos();
+	let rnt = {
+		transform:
+			`translateX(calc(50% + ${translateX}px)) translateY(${translateY}px)`
+	}
+	if (slotIndex.value > 1 && !slots.default) rnt['position'] = 'unset';
 	return rnt;
 });
 
@@ -168,7 +163,8 @@ onMounted(() => {
 		height: 8px;
 		width: 8px;
 		top: -4px;
-		right: -4px;
+		right: 0px;
+		transform: translateX(50%);
 	}
 
 	.ysyz-badge-tip {
@@ -176,14 +172,16 @@ onMounted(() => {
 		height: 20px;
 		line-height: 20px;
 		padding: 0 6px;
-		right: -10px;
 		top: -10px;
+		right: 0px;
+		transform: translateX(50%);
 	}
 
 	.ysyz-badge-content {
 		position: absolute;
 		top: -15%;
-		left: 65%;
+		right: 0px;
+		transform: translateX(50%);
 	}
 
 	.ysyz-badge-status {

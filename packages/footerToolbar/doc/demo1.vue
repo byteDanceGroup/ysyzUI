@@ -9,7 +9,7 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 button+button {
 	margin-left: 12px !important;
 }

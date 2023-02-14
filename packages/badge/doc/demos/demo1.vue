@@ -1,5 +1,5 @@
-<style lang="scss">
-// 注意：此处并未开启scoped
+<style>
+/* 注意：此处并未开启scoped，之后涉及的.demo-badge、.ysyz-badge都拥有如下的样式 */
 .demo-badge {
 	width: 42px;
 	height: 42px;
@@ -35,6 +35,6 @@
 	</div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 
 </script>

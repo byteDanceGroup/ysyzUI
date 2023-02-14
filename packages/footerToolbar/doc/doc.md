@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import preview from '../../../src/components/preview.vue'
-import demo1 from './demo1.vue';
+import codeDemos from './codeDemos.vue';
+import api from './api.vue';
 </script>
 
 # FooterToolbar 底部工具栏
@@ -11,9 +11,8 @@ import demo1 from './demo1.vue';
 
 ## 代码示例
 
-基础用法：<br/>
-浮动固定页脚。（请看当前页脚）
+<code-demos/>
 
-<demo1/>
+## api
 
-<preview comp-name='footerToolbar' demo-name='demo1'/>
+<api/>

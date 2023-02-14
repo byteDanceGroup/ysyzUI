@@ -35,3 +35,7 @@ function clickHover(): void {
 	hover.value = !hover.value;
 }
 </script>
+
+<style>
+
+</style>

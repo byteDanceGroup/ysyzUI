@@ -45,9 +45,6 @@ const value1 = ref<string>('1');
 const value2 = ref<string>('1-1');
 </script>
 
-<style lang="scss" scoped>
-.ysyz-collapse-doc {
-	margin: 0 auto;
-	width: 85%;
-}
+<style>
+
 </style>
