@@ -2,14 +2,14 @@
 import { defineAsyncComponent } from 'vue';
 
 const preview = defineAsyncComponent(() => import('../../../src/components/preview.vue'));
-const demo1 = defineAsyncComponent(() => import('./demos/demo1.vue'));
-const demo2 = defineAsyncComponent(() => import('./demos/demo2.vue'));
-const demo3 = defineAsyncComponent(() => import('./demos/demo3.vue'));
-const demo4 = defineAsyncComponent(() => import('./demos/demo4.vue'));
-const demo5 = defineAsyncComponent(() => import('./demos/demo5.vue'));
-const demo6 = defineAsyncComponent(() => import('./demos/demo6.vue'));
-const demo7 = defineAsyncComponent(() => import('./demos/demo7.vue'));
-const demo8 = defineAsyncComponent(() => import('./demos/demo8.vue'));
+const demo1 = defineAsyncComponent(() => import('./demo1.vue'));
+const demo2 = defineAsyncComponent(() => import('./demo2.vue'));
+const demo3 = defineAsyncComponent(() => import('./demo3.vue'));
+const demo4 = defineAsyncComponent(() => import('./demo4.vue'));
+const demo5 = defineAsyncComponent(() => import('./demo5.vue'));
+const demo6 = defineAsyncComponent(() => import('./demo6.vue'));
+const demo7 = defineAsyncComponent(() => import('./demo7.vue'));
+const demo8 = defineAsyncComponent(() => import('./demo8.vue'));
 </script>
 
 <template>
