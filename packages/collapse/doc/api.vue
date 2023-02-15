@@ -1,4 +1,5 @@
 <template>
+	<!-- 应仿照如下的方式定义"API Table" -->
 	<h3>Collapse Props</h3>
 	<ysyz-table border size="small" :columns="collapseProps.columns" :data="collapseProps.data" />
 	<h3>Collapse Events</h3>
@@ -11,7 +12,9 @@
 
 <script lang="ts" setup>
 import { PropsAPI, EventsAPI, SlotsAPI } from '../../APIDoc';
+// IView上"API Table"只有三类，分别是Props、Event、Slots。
 
+// 鼠标悬浮在方法pushToData上可以查看其参数
 const collapseProps = new PropsAPI();
 collapseProps.pushToData('model-value', '当前激活的面板的 name，可以使用 v-model 双向绑定', 'Array', 'String');
 collapseProps.pushToData('accordion', '是否开启手风琴模式，开启后每次至多展开一个面板', 'Boolean', 'false');

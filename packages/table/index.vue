@@ -12,7 +12,7 @@ const ysyzTbody = defineAsyncComponent(() => import('./tbody/index.vue'));
 
 interface Table {
 	data: Record<string | number, any>[],
-	columns: { title: string, key: string | number }[],
+	columns: { title: string, key: string | number, width?: number }[],
 	stripe?: boolean, // 是否显示间隔斑马纹
 	border?: boolean,
 	'show-header'?: boolean, // 是否显示表头

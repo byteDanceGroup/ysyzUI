@@ -1,18 +1,23 @@
+interface Column {
+	title: string,
+	key: string,
+}
+
 interface apiTable {
-	columns: Record<'title' | 'key', string>[],
-	data: Record<string, any>[],
+	columns: Column[],
+	data: Record<string, string>[],
 	pushToData: (...arg: string[]) => void;
 }
 
 export class PropsAPI implements apiTable {
-	columns: Record<"title" | "key", string>[] = [
+	columns: Column[] = [
 		{ title: '属性', key: 'attribute', },
 		{ title: '说明', key: 'explaination', },
 		{ title: '类型', key: 'type', },
 		{ title: '默认值', key: 'defaultValue', }
 	];
 
-	data: Record<string, any>[] = [];
+	data: Record<string, string>[] = [];
 
 	pushToData(attribute: string, explaination: string, type: string, defaultValue: string) {
 		this.data.push({
@@ -25,13 +30,13 @@ export class PropsAPI implements apiTable {
 }
 
 export class EventsAPI implements apiTable {
-	columns: Record<"title" | "key", string>[] = [
+	columns: Column[] = [
 		{ title: '事件名', key: 'eventName', },
 		{ title: '说明', key: 'explaination', },
 		{ title: '返回值', key: 'returnValue', }
 	];
 
-	data: Record<string, any>[] = [];
+	data: Record<string, string>[] = [];
 
 	pushToData(eventName: string, explaination: string, returnValue: string) {
 		this.data.push({
@@ -43,12 +48,12 @@ export class EventsAPI implements apiTable {
 }
 
 export class SlotsAPI implements apiTable {
-	columns: Record<"title" | "key", string>[] = [
+	columns: Column[] = [
 		{ title: '名称', key: 'slotName', },
 		{ title: '说明', key: 'explaination', },
 	];
 
-	data: Record<string, any>[] = [];
+	data: Record<string, string>[] = [];
 
 	pushToData(slotName: string, explaination: string) {
 		this.data.push({

@@ -2,7 +2,7 @@
 <template>
 	<tbody class="ysyz-tbody">
 		<tr v-for="(item, key) in props.data" :key="key">
-			<td :style="{ width: `${100 / props.columns.length}%` }" v-for="column in props.columns" :key="column.key">
+			<td v-for="column in props.columns" :key="column.key">
 				<div>{{ item[column.key] }}</div>
 			</td>
 		</tr>
