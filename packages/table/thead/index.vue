@@ -2,7 +2,7 @@
 <template>
 	<thead class="ysyz-thead">
 		<tr>
-			<th v-for="column in props.columns" :key="column.key">
+			<th v-for="column in props.columns" :key="column.key" :style="{ width: getWidth(column) }">
 				<div>{{ column.title }}</div>
 			</th>
 		</tr>
@@ -10,12 +10,24 @@
 </template>
 
 <script lang="ts" setup>
-interface Thead {
-	columns: { title: string, key: string | number }[],
+interface Column {
+	title: string,
+	key: string | number,
+	width?: number,
 }
+
+interface Thead {
+	columns: Column[],
+}
+
 const props = withDefaults(defineProps<Thead>(), {
 	columns: () => [],
 });
+
+function getWidth(item: Column) {
+	if (item.width)
+		return item.width + 'px';
+}
 </script>
 
 <style lang="scss" scoped>

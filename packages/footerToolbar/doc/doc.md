@@ -13,6 +13,8 @@ import api from './api.vue';
 
 <code-demos/>
 
-## api
+## API
+
+<br/>
 
 <api/>
