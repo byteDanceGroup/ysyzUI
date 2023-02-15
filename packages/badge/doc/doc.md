@@ -15,4 +15,6 @@ import api from '../doc/api.vue';
 
 ## API
 
+<br/>
+
 <api/>
