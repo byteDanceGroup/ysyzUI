@@ -22,3 +22,7 @@ function handleClick(): void {
 	border.value = !border.value;
 }
 </script>
+
+<style>
+
+</style>

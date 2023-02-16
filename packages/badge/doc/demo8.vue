@@ -11,7 +11,7 @@
 	</ysyz-badge>
 </template>
 
-<script>
+<script setup>
 
 </script>
 

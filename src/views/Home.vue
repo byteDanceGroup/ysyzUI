@@ -2,18 +2,9 @@
   <div class="container">
     <div class="left-menu">
       <ysyz-menu :to-auto="true" :default-active="route.name" :accordion="true">
-        <ysyz-submenu
-          v-for="(item, index) of types"
-          :key="'type-' + item[1]"
-          :title="item[0]"
-          :name="item[1]"
-        >
-          <ysyz-menuItem
-            v-for="(_item, _index) in menuList[0].children[index].children"
-            :key="item[0] + _index"
-            :name="_item.name"
-            >{{ _item.name }}</ysyz-menuItem
-          >
+        <ysyz-submenu v-for="(item, index) of types" :key="'type-' + item[1]" :title="item[0]" :name="item[1]">
+          <ysyz-menuItem v-for="(_item, _index) in menuList[0].children[index].children" :key="item[0] + _index"
+            :name="_item.name">{{ _item.name }}</ysyz-menuItem>
         </ysyz-submenu>
       </ysyz-menu>
     </div>
@@ -26,10 +17,7 @@
         </div>
         <div class="right-menu"></div>
       </div>
-      <ysyz-globalfooter
-        :links="links"
-        :copyright="copyright"
-      ></ysyz-globalfooter>
+      <ysyz-globalfooter :links="links" :copyright="copyright"></ysyz-globalfooter>
     </div>
   </div>
 </template>
@@ -83,19 +71,25 @@ const copyright = "Copyright © 2023 YouShiYouZhong9960 All Rights Reserved";
     margin: 20px 20px 0 20px;
     display: flex;
   }
+
   .rightMain {
     flex: 1;
     height: 100%;
     box-sizing: border-box;
   }
+
   .router-view {
     flex: 1;
   }
+
   .left-menu {
+    position: sticky;
+    top: 0;
     height: 100vh;
     background-color: #fff;
     overflow-y: auto;
   }
+
   .right-menu {
     min-width: 300px;
   }

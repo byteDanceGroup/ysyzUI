@@ -1,32 +1,32 @@
 <!-- 此文件只被其他组件依赖，不直接导出为组件 -->
 <template>
-	<thead class="ysyz-thead">
-		<tr>
-			<th v-for="column in props.columns" :key="column.key">
-				<div>{{ column.title }}</div>
-			</th>
+	<tbody class="ysyz-tbody">
+		<tr v-for="(item, key) in props.data" :key="key">
+			<td v-for="column in props.columns" :key="column.key">
+				<div>{{ item[column.key] }}</div>
+			</td>
 		</tr>
-	</thead>
+	</tbody>
 </template>
 
 <script lang="ts" setup>
-interface Thead {
+interface Tbody {
 	columns: { title: string, key: string | number }[],
+	data?: Record<string, any>[],
 }
-const props = withDefaults(defineProps<Thead>(), {
+const props = withDefaults(defineProps<Tbody>(), {
 	columns: () => [],
+	data: () => [],
 });
 </script>
 
 <style lang="scss" scoped>
-.ysyz-thead {
-	background-color: $table-thead-bg;
-
+.ysyz-tbody {
 	tr {
 		text-align: left;
 	}
 
-	th {
+	td {
 		box-sizing: border-box;
 		border-bottom: $border-width-base $border-style-base $border-color-split;
 		height: 48px;

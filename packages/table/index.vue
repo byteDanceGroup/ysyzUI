@@ -1,19 +1,20 @@
 <template>
-	<table class="ysyz-table">
+	<table :class="tableClassObject">
 		<ysyz-thead :columns="props.columns"></ysyz-thead>
 		<ysyz-tbody :columns="props.columns" :data="props.data"></ysyz-tbody>
 	</table>
 </template>
 
 <script lang="ts" setup>
-import { defineAsyncComponent } from 'vue';
-const ysyzThead = defineAsyncComponent(() => import('../thead/index.vue'));
-const ysyzTbody = defineAsyncComponent(() => import('../tbody/index.vue'));
+import { defineAsyncComponent, computed } from 'vue';
+const ysyzThead = defineAsyncComponent(() => import('./thead/index.vue'));
+const ysyzTbody = defineAsyncComponent(() => import('./tbody/index.vue'));
+
 interface Table {
 	data: Record<string | number, any>[],
-	columns: { title: string, key: string | number }[],
+	columns: { title: string, key: string | number, width?: number }[],
 	stripe?: boolean, // 是否显示间隔斑马纹
-	border?: boolean, // 是否显示纵向边框
+	border?: boolean,
 	'show-header'?: boolean, // 是否显示表头
 	width?: number | string, // 表格宽度，单位 px
 	height?: number | string, // 表格高度，单位 px，设置后，如果表格内容大于此值，会固定表头
@@ -26,8 +27,8 @@ interface Table {
 	'no-data-text'?: string, // 数据为空时显示的提示内容
 	'no-filtered-data-text'?: string, // 筛选数据为空时显示的提示内容
 	draggable?: false, // 是否开启拖拽调整行顺序，需配合 @on-drag-drop 事件使用
-	'tooltip-theme'?: 'dark' | 'light',
-	'tooltip-max-width'?: number,
+	'tooltip-theme'?: 'dark' | 'light', // 列使用 tooltip 时，配置它的主题，可选值为 dark 或 light
+	'tooltip-max-width'?: number, // 列使用 tooltip 时，配置 Tooltip 的最大宽，默认是 300
 	'row-key'?: boolean | string, // 是否强制使用内置的 row-key，开启后可能会影响性能
 	'span-method'?: () => any, // 合并行或列的计算方法
 	'show-summary'?: boolean, // 是否在表尾显示合计行
@@ -77,12 +78,43 @@ const props = withDefaults(defineProps<Table>(), {
 const emits = defineEmits([
 
 ]);
+
+const tableClassObject = computed(() => {
+	if (!props.size) props.size = 'default';
+	return {
+		'ysyz-table': true,
+		'ysyz-table-border': props.border,
+		'ysyz-table-small': props.size === 'small',
+		'ysyz-table-large': props.size === 'large',
+	}
+});
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .ysyz-table {
 	width: 100%;
 	margin: 0 auto;
 	border-collapse: collapse;
+}
+
+.ysyz-table-small {
+	font-size: 12px;
+}
+
+.ysyz-table-large {
+	font-size: 16px;
+}
+
+.ysyz-table-border {
+
+	&>.ysyz-tbody,
+	&>.ysyz-thead {
+		border-left: $border-width-base $border-style-base $border-color-split;
+	}
+
+	&>.ysyz-tbody>tr>td,
+	&>.ysyz-thead>tr>th {
+		border-right: $border-width-base $border-style-base $border-color-split;
+	}
 }
 </style>

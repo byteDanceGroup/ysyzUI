@@ -25,9 +25,6 @@ import { ref } from 'vue';
 const value = ref<string[]>();
 </script>
 
-<style lang="scss" scoped>
-.ysyz-collapse-doc {
-	margin: 0 auto;
-	width: 85%;
-}
+<style>
+
 </style>

@@ -15,11 +15,11 @@
 	</div>
 </template>
 
-<script>
+<script setup>
 
 </script>
 
-<style>
+<style scoped>
 .badge-demo6-column {
 	display: flex;
 	flex-direction: column;

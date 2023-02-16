@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import preview from '../../../src/components/preview.vue';
-import demo1 from './demo1.vue';
+import codeDemos from './codeDemos.vue';
+import api from './api.vue';
 </script>
 
 # Table 表格
@@ -12,16 +12,10 @@ import demo1 from './demo1.vue';
 
 ## 代码示例
 
-<!-- demo1 -->
----
+<code-demos/>
+
+## API
 
 <br/>
 
-<demo1/>
-
-基础用法：<br/>
-表格的最简单用法。（详细使用方法见“显示代码”。）<br/>
-
-<preview comp-name='table' demo-name='demo1'/>
-
-<br/>
+<api/>

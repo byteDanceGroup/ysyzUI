@@ -40,9 +40,4 @@ function handle() {
 .collapse-test-button {
 	margin-bottom: 10px;
 }
-
-.ysyz-collapse-doc {
-	margin: 0 auto;
-	width: 85%;
-}
 </style>
