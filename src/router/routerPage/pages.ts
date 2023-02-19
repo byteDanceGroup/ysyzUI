@@ -135,6 +135,11 @@ export default [
           //   name: "Anchor",
           //   component: () => import("../../../packages/anchor/doc/doc.md"),
           // },
+          {
+            path: "dropdown",
+            name: "Dropdown",
+            component: () => import("../../../packages/dropdown/doc/doc.md"),
+          }
         ],
       },
       {

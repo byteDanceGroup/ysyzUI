@@ -40,6 +40,9 @@ import Col from "./col/index";
 import RowACol from "./rowAcol/index";
 import Breadcrumb from "./breadcrumb/index";
 import BreadcrumbItem from "./breadcrumbItem/index";
+import Dropdown from './dropdown/index';
+import DropdownMenu from './dropdownMenu/index';
+import DropdownItem from './dropdownItem/index';
 const install = (app: { use: (arg0: any) => void }) => {
   app.use(Breadcrumb);
   app.use(BreadcrumbItem);
@@ -83,6 +86,9 @@ const install = (app: { use: (arg0: any) => void }) => {
   app.use(Content);
   app.use(Switch);
   app.use(Badge);
+  app.use(Dropdown);
+  app.use(DropdownMenu);
+  app.use(DropdownItem);
 };
 const QUI = {
   install,
@@ -125,4 +131,7 @@ export { CellGroup };
 export { FooterToolbar };
 export { Table };
 export { Badge };
+export { Dropdown };
+export { DropdownMenu };
+export { DropdownItem };
 export default QUI;

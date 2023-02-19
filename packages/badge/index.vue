@@ -14,7 +14,7 @@
 			<span v-show="slotIndex === 1" class="ysyz-badge-dot" :style="slotStyle"></span>
 			<slot></slot>
 		</div>
-</div>
+	</div>
 </template>
 
 <script lang="ts" setup>
