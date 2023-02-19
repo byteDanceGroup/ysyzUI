@@ -2,7 +2,7 @@
 <template>
 	<thead class="ysyz-thead">
 		<tr>
-			<th v-for="column in props.columns" :key="column.key" :style="{ width: getWidth(column) }">
+			<th v-for="column in props.columns" :key="column.key" :style="{ width: getWidth(column, columns.length) }">
 				<div>{{ column.title }}</div>
 			</th>
 		</tr>
@@ -14,6 +14,7 @@ interface Column {
 	title: string,
 	key: string | number,
 	width?: number,
+	notAverage?: boolean,
 }
 
 interface Thead {
@@ -24,9 +25,10 @@ const props = withDefaults(defineProps<Thead>(), {
 	columns: () => [],
 });
 
-function getWidth(item: Column) {
+function getWidth(item: Column, length: number) {
 	if (item.width)
 		return item.width + 'px';
+	if (!item.notAverage) return (100 / length) + '%';
 }
 </script>
 

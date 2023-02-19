@@ -1,5 +1,5 @@
 <template>
-	<dv>
+	<div>
 		<ysyz-grid square>
 			<ysyz-grid-item>1</ysyz-grid-item>
 			<ysyz-grid-item>2</ysyz-grid-item>
@@ -8,7 +8,7 @@
 			<ysyz-grid-item>5</ysyz-grid-item>
 			<ysyz-grid-item>6</ysyz-grid-item>
 		</ysyz-grid>
-	</dv>
+	</div>
 </template>
 
 <script setup>

@@ -1,9 +1,9 @@
 <template>
-	<div :class="['ysyz-collapse', {
+	<ul :class="['ysyz-collapse', {
 		'ysyz-collapse-simple': props.simple
 	}]">
 		<slot></slot>
-	</div>
+</ul>
 </template>
 
 <script lang="ts" setup>
@@ -55,6 +55,9 @@ provide('getActiveKey', getActiveKey);
 	background-color: $background-color-base;
 	border: $border-width-base $border-style-base $border-color-base;
 	border-radius: 3px;
+	&>.ysyz-panel .ysyz-collapse {
+		margin-top: 16px;
+	}
 }
 
 .ysyz-collapse-simple {
