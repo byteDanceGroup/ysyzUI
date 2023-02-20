@@ -76,6 +76,8 @@ const copyright = "Copyright © 2023 YouShiYouZhong9960 All Rights Reserved";
     flex: 1;
     height: 100%;
     box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .router-view {
@@ -91,7 +93,7 @@ const copyright = "Copyright © 2023 YouShiYouZhong9960 All Rights Reserved";
   }
 
   .right-menu {
-    min-width: 300px;
+    min-width: 250px;
   }
 }
 </style>
