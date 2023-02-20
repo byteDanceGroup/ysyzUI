@@ -1,6 +1,6 @@
 <!-- 此文件只被其他组件依赖，不直接导出为组件 -->
 <template>
-	<thead class="ysyz-thead">
+	<thead v-show="!hideHeader" class="ysyz-thead">
 		<tr>
 			<th v-for="column in props.columns" :key="column.key" :style="{ width: getWidth(column, columns.length) }">
 				<div>{{ column.title }}</div>
@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts" setup>
+import { inject } from 'vue';
 interface Column {
 	title: string,
 	key: string | number,
@@ -20,6 +21,8 @@ interface Column {
 interface Thead {
 	columns: Column[],
 }
+
+const hideHeader = inject('hideHeader') as boolean;
 
 const props = withDefaults(defineProps<Thead>(), {
 	columns: () => [],
