@@ -5,8 +5,7 @@
 			{{ props.text }}
 		</div>
 		<div v-show="!statusShow">
-			<span v-show="slotIndex === 3" :class="[props.className, typeClassName, 'ysyz-badge-tip']"
-				:style="slotStyle">
+			<span v-show="slotIndex === 3" :class="[props.className, typeClassName, 'ysyz-badge-tip']" :style="slotStyle">
 				{{ content }}
 			</span>
 			<span v-show="slotIndex === 2" :class="{ 'ysyz-badge-content': slots.count }" :style="slotStyle">
@@ -22,20 +21,11 @@
 import { computed, ref, useSlots, onMounted } from 'vue';
 
 enum Status {
-	success,
-	processing,
-	default,
-	error,
-	warning
+	success, processing, default, error, warning
 }
 
 enum Type {
-	success,
-	primary,
-	normal,
-	error,
-	warning,
-	info,
+	success, primary, normal, error, warning, info,
 }
 
 interface Badge {
@@ -43,9 +33,9 @@ interface Badge {
 	overflowCount?: number | string,
 	dot?: boolean,
 	className?: string,
-	type?: Type,
+	type?: keyof typeof Type,
+	status?: keyof typeof Status,
 	showZero?: boolean,
-	status?: Status,
 	text?: string,
 	offset?: [left: number, right: number],
 }

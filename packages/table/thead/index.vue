@@ -1,8 +1,8 @@
 <!-- 此文件只被其他组件依赖，不直接导出为组件 -->
 <template>
-	<thead class="ysyz-thead">
+	<thead v-show="!hideHeader" class="ysyz-thead">
 		<tr>
-			<th v-for="column in props.columns" :key="column.key" :style="{ width: getWidth(column) }">
+			<th v-for="column in props.columns" :key="column.key" :style="{ width: getWidth(column, columns.length) }">
 				<div>{{ column.title }}</div>
 			</th>
 		</tr>
@@ -10,23 +10,28 @@
 </template>
 
 <script lang="ts" setup>
+import { inject } from 'vue';
 interface Column {
 	title: string,
 	key: string | number,
 	width?: number,
+	notAverage?: boolean,
 }
 
 interface Thead {
 	columns: Column[],
 }
 
+const hideHeader = inject('hideHeader') as boolean;
+
 const props = withDefaults(defineProps<Thead>(), {
 	columns: () => [],
 });
 
-function getWidth(item: Column) {
+function getWidth(item: Column, length: number) {
 	if (item.width)
 		return item.width + 'px';
+	if (!item.notAverage) return (100 / length) + '%';
 }
 </script>
 

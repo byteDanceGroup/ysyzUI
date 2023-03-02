@@ -1,6 +1,7 @@
 interface Column {
 	title: string,
 	key: string,
+	notAverage?: boolean,
 }
 
 interface apiTable {
@@ -27,6 +28,12 @@ export class PropsAPI implements apiTable {
 			defaultValue,
 		});
 	}
+
+	constructor() {
+		this.columns.forEach((item) => {
+			item.notAverage = true;
+		});
+	}
 }
 
 export class EventsAPI implements apiTable {
@@ -45,6 +52,12 @@ export class EventsAPI implements apiTable {
 			returnValue,
 		});
 	}
+
+	constructor() {
+		this.columns.forEach((item) => {
+			item.notAverage = true;
+		});
+	}
 }
 
 export class SlotsAPI implements apiTable {
@@ -60,5 +73,11 @@ export class SlotsAPI implements apiTable {
 			slotName,
 			explaination,
 		})
+	}
+
+	constructor() {
+		this.columns.forEach((item) => {
+			item.notAverage = true;
+		});
 	}
 }

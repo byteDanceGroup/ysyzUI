@@ -3,11 +3,11 @@ import codeDemos from './codeDemos.vue';
 import api from './api.vue';
 </script>
 
-# Table 表格
+# Dropdown 下拉菜单
 
 ## 概述
 
-主要用于展示大量结构化数据。
+展示一组折叠的下拉菜单。
 
 ## 代码示例
 

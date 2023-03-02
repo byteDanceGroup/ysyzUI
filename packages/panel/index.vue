@@ -1,5 +1,5 @@
 <template>
-	<div :class="['ysyz-panel', {
+	<li :class="['ysyz-panel', {
 		'ysyz-panel-show': isActive,
 	}]">
 		<div class="ysyz-collapse-header" @click="toggle(props.name);">
@@ -11,7 +11,7 @@
 		<div ref="panelContent" class="ysyz-collapse-content" :style="{ height: height }">
 			<slot name="content"></slot>
 		</div>
-	</div>
+</li>
 </template>
 <script lang="ts" setup>
 import { ref, inject, computed, onMounted } from 'vue';
